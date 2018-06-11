@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "breed": "Welsh Corgi",
+    "description": " The Welsh Corgi ..."
+  },
+  {
+    "id": 2,
+    "breed": "Siberian Husky",
+    "description": " The Siberian Husky ..."
+  }
+]
