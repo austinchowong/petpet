@@ -7,88 +7,36 @@
     tools:context=".CreatePetActivity">
 
     <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/cnp_pet_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:scrollbars="vertical">
 
-
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_create_pet"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:srcCompat="@mipmap/piggy" />
-
-            <LinearLayout android:layout_width="match_parent"
-                android:id="@+id/pet_id"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/pet_name"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="32sp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Welsh Corgi is a good dog. Lalalalaaaa"
-                    android:textSize="16sp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:srcCompat="@mipmap/piggy" />
-
-            <LinearLayout android:layout_width="match_parent"
-                android:id="@+id/pet_id1"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Husky"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="32sp"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Welsh Corgi is a good dog. Lalalalaaaa"
-                    android:textSize="16sp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"/>
 
 
         <TextView
             android:layout_marginTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Coming Soon..."
+            android:text="@string/coming_soon"
             android:textSize="30sp"
             android:textColor="@color/colorAccent"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
+
+    <ImageView
+        android:id="@+id/cnp_loading_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:srcCompat="@mipmap/piggy"
+        android:scaleType="center"/>
 
 </android.support.constraint.ConstraintLayout>

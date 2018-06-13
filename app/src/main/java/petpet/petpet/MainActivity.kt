@@ -9,24 +9,28 @@ import android.view.MenuItem
 import android.view.View
 
 import kotlinx.android.synthetic.main.activity_main.*
-import petpet.petpet.Pet.Pet
-import petpet.petpet.Pet.PetReference
+import petpet.petpet.Pet.PetPreference
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        //showLoading()
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
 
-        val petReference = PetReference(this)
+        val petReference = PetPreference(this)
         if(!petReference.hasPet()) {
             createNewPet()
+        } else {
+            gotoHomePage()
         }
 
     }
@@ -53,6 +57,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun createNewPet() {
         val intent = Intent(this, CreatePetActivity::class.java)
+        finish()
         startActivity(intent)
     }
+
+    private fun gotoHomePage() {
+        val intent = Intent(this, Home::class.java)
+        finish()
+        startActivity(intent)    }
 }

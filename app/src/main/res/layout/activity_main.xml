@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="createNewPet"
-            android:text="Choose Your Pet" />
+            android:text="@string/choose_your_pet" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -36,5 +36,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <include layout="@layout/loading"/>
 
 </android.support.design.widget.CoordinatorLayout>
