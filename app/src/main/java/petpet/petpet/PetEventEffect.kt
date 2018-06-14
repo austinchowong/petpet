@@ -1,0 +1,43 @@
+package petpet.petpet
+
+import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
+import com.google.gson.reflect.TypeToken
+import petpet.petpet.Pet.Pet
+import kotlin.reflect.KVisibility
+import kotlin.reflect.*
+
+/**
+ * Created by user on 2018-06-13.
+ */
+class PetEventEffect {
+    //depending on whether an event is completed or not, it would have different effects
+    //instanced events are always completed
+    var completedEffects = ArrayList<PetEffect>();
+    var incompleteEffects = ArrayList<PetEffect>();
+
+    //constructor, should let incomplete be empty by default
+    constructor(complete: ArrayList<PetEffect>, incomplete:ArrayList<PetEffect> = ArrayList<PetEffect>())
+    {
+        this.completedEffects = complete;
+        this.incompleteEffects = incomplete;
+    }
+}
+
+class PetEffect{
+    //changes the property of pet with name "field" by some value
+    var field : String = "";
+    var valueChange : Int = 0;
+
+    //constructor
+    constructor(field:String = "", valueChange: Int = 0)
+    {
+        this.field = field;
+        this.valueChange = valueChange;
+    }
+
+    fun ApplyEffect(pet: Pet)
+    {
+
+    }
+}
