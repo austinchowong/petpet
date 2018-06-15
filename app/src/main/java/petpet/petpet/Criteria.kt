@@ -20,6 +20,7 @@ class Criteria{
     @SerializedName("fulfilled")
     var fulfilled : Boolean = false
 
+    //do this later
     fun IsFulfilled() : Boolean
     {
         //use reflection to get field values
@@ -43,7 +44,7 @@ class Criteria{
         //check to see if the string is a hardcoded value
         if(varName == "true")
         {
-            return true;
+            //return true;
         }
 
         //reflection

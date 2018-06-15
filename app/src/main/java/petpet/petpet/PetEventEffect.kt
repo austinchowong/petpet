@@ -1,11 +1,11 @@
 package petpet.petpet
 
+import android.content.Context
+import petpet.petpet.Pet.Pet
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.Pet
-import kotlin.reflect.KVisibility
-import kotlin.reflect.*
+import petpet.petpet.Pet.PetPreference
 
 /**
  * Created by user on 2018-06-13.
@@ -13,7 +13,9 @@ import kotlin.reflect.*
 class PetEventEffect {
     //depending on whether an event is completed or not, it would have different effects
     //instanced events are always completed
+    @SerializedName("completedEffects")
     var completedEffects = ArrayList<PetEffect>();
+    @SerializedName("incompleteEffects")
     var incompleteEffects = ArrayList<PetEffect>();
 
     //constructor, should let incomplete be empty by default
@@ -26,7 +28,9 @@ class PetEventEffect {
 
 class PetEffect{
     //changes the property of pet with name "field" by some value
+    @SerializedName("fieldName")
     var field : String = "";
+    @SerializedName("valueChange")
     var valueChange : Int = 0;
 
     //constructor
@@ -36,8 +40,21 @@ class PetEffect{
         this.valueChange = valueChange;
     }
 
-    fun ApplyEffect(pet: Pet)
+    fun ApplyEffect(context:Context)
     {
+        //change the values through petpreference
+        val petpreference = PetPreference(context);
+        if(field == "hunger")
+        {
+            petpreference.changePetHunger(valueChange as Long)
+        }
+        else if(field == "happiness")
+        {
+            petpreference.changePetHappiness(valueChange as Long)
+        }
+        else
+        {
 
+        }
     }
 }

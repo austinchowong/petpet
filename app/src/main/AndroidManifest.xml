@@ -20,9 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< Updated upstream
+
         <activity android:name=".CreatePetActivity"></activity>
-=======
         <receiver
             android:name=".EventAlarmReceiver"
             android:process=":remote" >
@@ -31,7 +30,9 @@
         <service
             android:name=".TimerEventService"
             android:exported="false" />
->>>>>>> Stashed changes
+        <activity android:name=".Home">
+
+        </activity>
     </application>
 </manifest>
 
