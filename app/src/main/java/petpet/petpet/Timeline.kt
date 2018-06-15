@@ -16,7 +16,7 @@ import android.content.Intent
 class Timeline {
     //time of when the timeline was created
     @SerializedName("startDate")
-    public var startDate: Date? = null;
+    public var startDate: Long = 0;
     @SerializedName("timeline")
     public var timeline = ArrayList<PetEvent>();
 
@@ -26,7 +26,7 @@ class Timeline {
         {
             //first time this timeline is being initialized
             //does not have a starting date yet
-            this.startDate = GregorianCalendar.getInstance().time
+            this.startDate = GregorianCalendar.getInstance().time.getTime();
             scheduleAlarm(context)
         }
     }

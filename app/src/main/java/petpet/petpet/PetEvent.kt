@@ -1,5 +1,6 @@
 package petpet.petpet
 
+import android.content.Context
 import android.text.format.Time
 import java.util.*
 import com.google.gson.Gson
@@ -26,9 +27,9 @@ class PetEvent {
 
     //need to make relative format
     @SerializedName("startTime")
-    var startTime : Date? = null;
+    var startTime : String = "";
     @SerializedName("endTime")
-    var endTime : Date? = null;
+    var endTime : String = "";
 
     @SerializedName("completedTime")
     var completedTime : Date? = null;
@@ -52,7 +53,7 @@ class PetEvent {
     //would every possible event be already generated and we can just grab pre written events
     //that correspond to actions?
     //instanced events would have no criteria? since they're complete as soon as you create them
-    constructor(name:String, description:String, id:Int, startTime:Date, endTime:Date, isInstanced:Boolean,
+    constructor(name:String, description:String, id:Int, startTime:String, endTime:String, isInstanced:Boolean,
                 criteriaList: ArrayList<Criteria>, effects:PetEventEffect)
     {
         this.name = name;
@@ -103,7 +104,7 @@ class PetEvent {
             val now = GregorianCalendar.getInstance().time;
             var difference = now.getTime() - initialTime.getTime();
             //startTime and endTime should be relative times from the start
-            if(difference >= endTime!!.getTime())
+            if(difference >= getTimeFromString(endTime))
             {
                 isActive = false;
             }
@@ -114,7 +115,7 @@ class PetEvent {
             val now = GregorianCalendar.getInstance().time;
             var difference = now.getTime() - initialTime.getTime();
             //startTime and endTime should be relative times from the start
-            if(difference >= startTime!!.getTime() && difference <= endTime!!.getTime())
+            if(difference >= getTimeFromString(startTime) && difference <= getTimeFromString(endTime))
             {
                 isActive = true;
             }
@@ -122,33 +123,44 @@ class PetEvent {
         return isActive
     }
 
-    //should be able to register the completed event in order to have values be modified according
-    //to the results specified in the event, regardless of whether finished or not I guess.
-    //since could have positive or negative effects
-
-    fun EventComplete()
+    //returns the time converted to milliseconds for math purposes
+    fun getTimeFromString(time:String) : Int
     {
-        //the event was compelted by the user, I guess the event should specify what its
-        //effects are after being complete
+        //format days/hours/minutes relative to starting time
+
+        var times = time.split('/')
+        if(times.size < 3) return 0 //invalid time
+
+        val days = times[0].toInt()
+        val hours = times[1].toInt()
+        val minutes = times[2].toInt()
+
+        //convert to milliseconds
+        return ((days * 24 + hours) * 60 + minutes) * 60 * 1000;
+    }
+
+    fun EventComplete(context:Context)
+    {
+        //the event was completed by the user
         //apply complete effects
         if(effects == null) return;
 
         for(peteffect in effects!!.completedEffects)
         {
-            peteffect.ApplyEffect(pet);
+            peteffect.ApplyEffect(context);
         }
     }
 
-    fun EventIncomplete()
+    fun EventIncomplete(context:Context)
     {
         //eventually timer will check back and see that this event has reached the end but was not fulfilled
-        //something should happen here, not sure what though
+        //apply incomplete effects
 
         if(effects == null) return;
 
         for(peteffect in effects!!.incompleteEffects)
         {
-            peteffect.ApplyEffect(pet);
+            peteffect.ApplyEffect(context);
         }
     }
 }

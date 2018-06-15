@@ -34,6 +34,7 @@
             android:label="@string/title_activity_pet_menu"
             android:theme="@style/FullscreenTheme"></activity>
 
+
         <receiver
             android:name=".EventAlarmReceiver"
             android:process=":remote" >
@@ -43,6 +44,7 @@
             android:name=".TimerEventService"
             android:exported="false" />
 
+        </activity>
     </application>
 </manifest>
 

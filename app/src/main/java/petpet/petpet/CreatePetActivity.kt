@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import petpet.petpet.Pet.Pet
@@ -17,6 +18,7 @@ import petpet.petpet.Pet.PetItemAdapter
 import petpet.petpet.Pet.PetPreference
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.io.*
 
 class CreatePetActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -45,13 +47,35 @@ class CreatePetActivity : AppCompatActivity() {
         return  petList.toTypedArray()
     }
 
+    private fun loadTimeline(breed: String)
+    {
+        val reader = BufferedReader(InputStreamReader(this.assets.open(breed + ".json")))
+        val gson = Gson()
+        val timeline : Timeline = gson.fromJson(reader ,object : TypeToken<Timeline>() {}.type )
+        timeline.initTimeline(this)
+
+        val writer = BufferedWriter(OutputStreamWriter(FileOutputStream("PetTimeline")))
+        val jsonString = gson.toJson(timeline);
+        writer.write(jsonString);
+        writer.close();
+    }
+
+    //hide pet list and display loading image
+    private fun showLoading() {
+        findViewById<LinearLayoutCompat>(R.id.cnp_pet_list).visibility = View.INVISIBLE
+        findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
+    }
+
     fun choosePet(view : View) {
         PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
 
+		//TODO: load pet info
+		
         /*
             TODO: loading pet's timeline and events in system
             findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
          */
+		loadTimeline(view.findViewById<TextView>(R.id.pet_item_name).text.toString())
 
         val intent = Intent(this, Home::class.java)
         finish()
