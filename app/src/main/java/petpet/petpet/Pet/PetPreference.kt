@@ -15,7 +15,7 @@ class PetPreference (context: Context) {
     private val prefDescription: String = "prefDescription"
     private val prefId: String = "prefId"
 
-    private val prefTimelineFileName : String = "PetTimeline"
+    val prefTimelineFileName : String = "PetTimeline"
     private val prefHunger : String = "prefHunger"
     private val prefHappiness : String = "prefHappiness"
 
