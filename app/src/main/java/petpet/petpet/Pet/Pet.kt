@@ -3,6 +3,7 @@ package petpet.petpet.Pet
 import android.content.Context
 import android.content.Intent
 import android.support.v4.content.ContextCompat.startActivity
+import android.view.View
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
@@ -18,10 +19,11 @@ class Pet {
     val id : Long = 0
 
     @SerializedName("breed")
-    val name : String = ""
+    val breed : String = ""
 
     @SerializedName("description")
     val description : String = ""
 
-
+    @SerializedName("image")
+    val image : String = ""
 }
