@@ -34,11 +34,11 @@ class PetEvent {
     @SerializedName("completedTime")
     var completedTime : Date? = null;
     @SerializedName("isComplete")
-    var isComplete = false;
+    public var isComplete = false;
     @SerializedName("isActive")
-    var isActive = false;
+    public var isActive = false;
     @SerializedName("isInstanced")
-    var isInstanced = false;    //used to determine whether this event was part of the original
+    public var isInstanced = false;    //used to determine whether this event was part of the original
                                 // scripted timeline or generated through an user action
     @SerializedName("criteriaList")
     var criteriaList = ArrayList<Criteria>();
@@ -78,6 +78,19 @@ class PetEvent {
         }
     }
 
+    fun CheckEvent(context: Context, startDate: Long)
+    {
+        CheckActive(startDate, context)
+        if(isActive)
+        {
+            if(IsComplete())
+            {
+                EventComplete(context)
+                //send a notification saying event complete
+            }
+        }
+    }
+
     //returns whether this event is complete or not by checking
     //the list of criteria that it has to fulfill
     fun IsComplete() : Boolean
@@ -96,28 +109,32 @@ class PetEvent {
         return true;
     }
 
-    fun CheckActive(initialTime: Date) : Boolean
+    fun CheckActive(initialTime: Long, context: Context) : Boolean
     {
         //given the starting date of the timeline, is this event currently active
         if(isActive)
         {
             val now = GregorianCalendar.getInstance().time;
-            var difference = now.getTime() - initialTime.getTime();
-            //startTime and endTime should be relative times from the start
+            var difference = now.getTime() - initialTime;
+
+            //currently active, but has passed deadline
             if(difference >= getTimeFromString(endTime))
             {
                 isActive = false;
+                //apply incomplete consequences
+                EventIncomplete(context);
             }
         }
         else
         {
             //check to see if we should activate it
             val now = GregorianCalendar.getInstance().time;
-            var difference = now.getTime() - initialTime.getTime();
-            //startTime and endTime should be relative times from the start
+            var difference = now.getTime() - initialTime;
+            //Event has started, need to activate it
             if(difference >= getTimeFromString(startTime) && difference <= getTimeFromString(endTime))
             {
                 isActive = true;
+                //should send a notification here saying event started
             }
         }
         return isActive

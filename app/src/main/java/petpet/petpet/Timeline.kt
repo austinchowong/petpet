@@ -17,8 +17,38 @@ class Timeline {
     //time of when the timeline was created
     @SerializedName("startDate")
     public var startDate: Long = 0;
+
+    //current and future events
     @SerializedName("timeline")
     public var timeline = ArrayList<PetEvent>();
+
+    //events that are in the past, both complete and incomplete
+    @SerializedName("pastEvents")
+    var pastEvents = ArrayList<PetEvent>();
+
+    fun CheckTimeline(context: Context)
+    {
+        for(petevent in timeline)
+        {
+            val activenow = petevent.isActive;
+            //this function will change the event's flags if needed
+            petevent.CheckEvent(context, startDate);
+            //two cases for moving event from timeline to pastEvents
+            //1.event is now complete
+            //2.event has not been completed within the given time
+            if(petevent.isComplete || (activenow && !petevent.isActive))
+            {
+                pastEvents.add(petevent);
+                timeline.remove(petevent);
+            }
+        }
+    }
+
+    //since all events are prewritten, any events that need to be added should already be complete
+    fun AddEvent(event: PetEvent)
+    {
+        pastEvents.add(event);
+    }
 
     fun initTimeline(context:Context)
     {
