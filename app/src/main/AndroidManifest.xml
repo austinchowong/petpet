@@ -21,6 +21,10 @@
         </activity>
         <activity android:name=".CreatePetActivity" />
         <activity android:name=".Home"></activity>
+        <activity
+            android:name=".Pet.PetActivity"
+            android:label="@string/title_activity_pet"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
