@@ -2,19 +2,19 @@
   {
     "id": 1,
     "breed": "Welsh Corgi",
-    "description": " The Welsh Corgi ...",
-    "image":  "piggy"
+    "description": "The Welsh Corgi, sometimes known as just a Corgi, got their name from two welsh words ...",
+    "image":  "mipmap/ic_launcher"
   },
   {
     "id": 2,
-    "breed": "Siberian Husky",
-    "description": " The Siberian Husky ...",
-    "image":  "piggy"
+    "breed": "Alaskan Malamute",
+    "description": "Alaskan Malamute is well known as a type of sled doy. They are best friends and partners for ... ",
+    "image":  "drawable/leo"
   },
   {
     "id": 3,
-    "breed": "Husky",
-    "description": " The Siberian Husky is SIJIA",
-    "image":  "piggy"
+    "breed": "Piggy",
+    "description": "Proudly introduce our new Concept Pet: Piggy #1 ",
+    "image":  "mipmap/piggy"
   }
 ]
