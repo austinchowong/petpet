@@ -18,15 +18,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="110dp"
             android:id="@+id/imageButton"
             android:layout_marginTop="20dp"
             android:src="@drawable/ic_house"
             android:padding="1dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="end"
+            android:layout_alignParentLeft="false"
             android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/imageButton2"
-            android:layout_marginRight="62dp" />
+            android:layout_marginRight="10dp"/>
 
         <ImageView
             android:layout_width="wrap_content"

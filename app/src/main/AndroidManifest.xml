@@ -20,11 +20,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreatePetActivity" />
-        <activity android:name=".Home"></activity>
+        <activity android:name=".Home" />
         <activity
             android:name=".Pet.PetActivity"
             android:label="@string/title_activity_pet"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Pet.LogoPage"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_logo_page"
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

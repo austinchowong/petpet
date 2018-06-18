@@ -10,6 +10,6 @@
         android:layout_height="match_parent"
         android:scaleType="center"
         android:visibility="invisible"
-        app:srcCompat="@mipmap/piggy" />
+        android:src="@drawable/ic_petpet" />
 
 </LinearLayout>

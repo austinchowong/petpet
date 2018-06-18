@@ -16,13 +16,11 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        setPetInfo()
+//        setPetInfo()
     }
 
     fun setPetInfo() {
         val preference = PetPreference(this)
         val str = preference.getPetBreed()
-        findViewById<TextView>(R.id.pet_breed).text = str
-        findViewById<TextView>(R.id.pet_description).text = preference.getPetDescription()
     }
 }
