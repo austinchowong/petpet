@@ -4,38 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    android:background="@android:color/background_light"
+    tools:context=".Pet.SplashActivity">
 
-    <TextView
-        android:id="@+id/pet_description"
-        android:layout_width="match_parent"
-        android:layout_height="19dp"
-        android:layout_marginBottom="492dp"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="110dp"
-            android:id="@+id/imageButton"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_house"
-            android:padding="1dp"
-            android:scaleType="fitCenter"
-            android:layout_gravity="end"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="10dp"/>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center_horizontal|bottom"
-            android:src="@drawable/corgi"/>
-    </LinearLayout>
+    <ImageView
+        android:layout_width="262dp"
+        android:layout_height="81dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_petpet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

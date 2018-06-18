@@ -36,7 +36,6 @@ class CreatePetActivity : AppCompatActivity() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
-
     }
 
     private fun initialize(context: Context): Array<Pet> {
@@ -47,7 +46,6 @@ class CreatePetActivity : AppCompatActivity() {
     }
 
     fun choosePet(view : View) {
-        showLoading()
         PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
 
         /*
@@ -60,9 +58,4 @@ class CreatePetActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    //hide pet list and display loading image
-    private fun showLoading() {
-        findViewById<LinearLayoutCompat>(R.id.cnp_pet_list).visibility = View.INVISIBLE
-        findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
-    }
 }

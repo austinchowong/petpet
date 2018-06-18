@@ -27,9 +27,11 @@ class PetPreference (context: Context) {
     }
 
     fun setPetPreference(view : View) {
-        preference.edit().putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString()).apply()
-        preference.edit().putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString()).apply()
-        preference.edit().putLong(prefId, view.tag as Long).apply()
+        preference.edit()
+                .putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString())
+                .putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString())
+                .putLong(prefId, view.tag as Long)
+                .apply()
         setHasPet(true)
     }
 
