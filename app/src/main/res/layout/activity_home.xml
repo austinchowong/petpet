@@ -17,25 +17,79 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="110dp"
-            android:id="@+id/imageButton"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_house"
-            android:padding="1dp"
-            android:scaleType="fitCenter"
-            android:layout_gravity="end"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="true"
-            android:layout_marginRight="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:paddingTop="25dp"
+                android:paddingRight="50dp"
+                android:paddingLeft="25dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Coco" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressBackgroundTint="#CCA63B"
+                    android:progressTint="#CCA63B"
+                    android:scaleY="3" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar3"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressBackgroundTint="#CCA63B"
+                    android:progressTint="#CCA63B"
+                    android:scaleY="3" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar4"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="100"
+                    android:progressBackgroundTint="#CCA63B"
+                    android:progressTint="#CCA63B"
+                    android:scaleY="3" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                style="@android:style/Widget.DeviceDefault.ImageButton"
+                android:layout_width="100dp"
+                android:layout_height="110dp"
+                android:layout_gravity="end"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:padding="1dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_house" />
+        </LinearLayout>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="310dp"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
             android:layout_gravity="center_horizontal|bottom"
-            android:src="@drawable/corgi"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/corgi" />
     </LinearLayout>
 
     <Button
@@ -70,5 +124,6 @@
         app:layout_constraintEnd_toStartOf="@+id/walk_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/feed_button" />
+
 
 </android.support.constraint.ConstraintLayout>
