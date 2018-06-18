@@ -23,7 +23,7 @@
         android:layout_marginBottom="56dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
-        android:text="Fetch"
+        android:text="Ball"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
         android:layout_height="29dp"
         android:layout_marginBottom="296dp"
         android:layout_marginStart="40dp"
-        android:text="Pet"
+        android:text="Frisbee"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

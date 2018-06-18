@@ -12,11 +12,7 @@ import petpet.petpet.Pet.PlayFragment
 import petpet.petpet.Pet.WalkFragment
 import petpet.petpet.Pet.PetPreference
 
-/*
-    TODO:
-    temp home related function. this file will be replace by Ilene
-    home activity is displaying pet's breed and description
- */
+
 class Home : AppCompatActivity() {
 
     lateinit var feed_button: Button

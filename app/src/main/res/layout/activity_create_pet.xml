@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="@string/coming_soon"
             android:textSize="30sp"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colourForth"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 
