@@ -5,16 +5,14 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.CardView
-import android.support.v7.widget.LinearLayoutCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.ImageView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.Pet
-import petpet.petpet.Pet.PetItemAdapter
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.Pet
+import petpet.petpet.pet.PetItemAdapter
+import petpet.petpet.pet.PetPreference
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -48,10 +46,10 @@ class CreatePetActivity : AppCompatActivity() {
     fun choosePet(view : View) {
         PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
 
-        /*
-            TODO: loading pet's timeline and events in system
-            findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
-         */
+        //TODO: load pet info
+
+        //TODO: loading pet's timeline and events in system
+        //findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
 
         val intent = Intent(this, Home::class.java)
         finish()

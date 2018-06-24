@@ -1,4 +1,4 @@
-package petpet.petpet.Pet
+package petpet.petpet.pet
 
 import android.content.Context
 import android.view.View
@@ -15,14 +15,14 @@ class PetPreference (context: Context) {
     private val prefDescription: String = "prefDescription"
     private val prefId: String = "prefId"
 
-    val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
+    private val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
 
 
     fun hasPet() : Boolean {
         return preference.getBoolean(hasPet, false)
     }
 
-    fun setHasPet(pet : Boolean) {
+    private fun setHasPet(pet : Boolean) {
         preference.edit().putBoolean(hasPet, pet).apply()
     }
 

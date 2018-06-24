@@ -1,6 +1,6 @@
 package petpet.petpet
 
-import android.text.format.Time
+import petpet.petpet.util.Criteria
 import java.util.*
 
 /**
@@ -38,7 +38,7 @@ public class PetEvent {
             }
         }
         isComplete = true;
-        completedTime = GregorianCalendar.getInstance().time.getTime();
+        completedTime = GregorianCalendar.getInstance().time.time;
         return true;
     }
 }
