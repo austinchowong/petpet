@@ -1,5 +1,8 @@
-package petpet.petpet
+package petpet.petpet.util
 import org.json.*
+import petpet.petpet.PetEvent
+import petpet.petpet.Timeline
+
 /**
  * Created by user on 2018-06-06.
  */
