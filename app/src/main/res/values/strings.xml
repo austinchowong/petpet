@@ -15,4 +15,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="title_activity_pet_menu">petMenu</string>
+
+
+    <string name="notification_message">There is a message for you!</string>
+    <string name="PET_UPDATE_CHANNEL_ID">update_channel</string>
+
 </resources>

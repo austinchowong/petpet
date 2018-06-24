@@ -6,12 +6,14 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import android.widget.Button
 import petpet.petpet.event.FeedFragment
 import petpet.petpet.event.PlayFragment
 import petpet.petpet.event.WalkFragment
 import petpet.petpet.pet.PetPreference
 import petpet.petpet.updatePet.UpdatePetIntentService
+import petpet.petpet.updatePet.UpdatePetTask
 import java.util.*
 
 
@@ -45,7 +47,7 @@ class Home : AppCompatActivity() {
         }
 
 
-        //setAlarmMgr()
+        setAlarmMgr()
 
     }
 
@@ -56,10 +58,16 @@ class Home : AppCompatActivity() {
      */
     private fun setAlarmMgr() {
         val alarmMgr = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val calendar : Calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, 7)
         val intent = Intent(applicationContext, UpdatePetIntentService::class.java)
         val alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0)
-        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, 1000 * 60 * 5,  alarmIntent)
+
+        // set the alarm to start at 22:00
+        val calendar : Calendar = Calendar.getInstance()
+        calendar.timeInMillis = System.currentTimeMillis()
+        calendar.set(Calendar.HOUR_OF_DAY, 22)
+
+        //repeat alarm every 2 mins
+        alarmMgr.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime(), 1000 * 60 * 2,  alarmIntent)
     }
 }

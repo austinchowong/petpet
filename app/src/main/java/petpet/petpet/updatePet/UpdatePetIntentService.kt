@@ -8,6 +8,6 @@ import android.content.Intent
  */
 class UpdatePetIntentService  : IntentService("AlarmService") {
         override fun onHandleIntent(p0: Intent?) {
-            UpdatePetTask().updatePet()
+            UpdatePetTask().updatePet(this)
         }
     }
