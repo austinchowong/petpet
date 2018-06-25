@@ -18,6 +18,7 @@ class PetPreference (context: Context) {
     val prefTimelineFileName : String = "PetTimeline"
     private val prefHunger : String = "prefHunger"
     private val prefHappiness : String = "prefHappiness"
+    private val prefHealth : String = "prefHealth"
 
     val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
 
@@ -58,5 +59,12 @@ class PetPreference (context: Context) {
         var happiness = preference.getLong(prefHappiness, 0)
         happiness += changeValue
         preference.edit().putLong(prefHappiness, happiness).apply()
+    }
+
+    fun changePetHealth(changeValue: Long)
+    {
+        var health = preference.getLong(prefHealth, 0)
+        health += changeValue
+        preference.edit().putLong(prefHealth, health).apply()
     }
 }
