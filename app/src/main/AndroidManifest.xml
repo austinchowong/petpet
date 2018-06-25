@@ -42,8 +42,6 @@
         <service
             android:name=".TimerEventService"
             android:exported="false" />
-
-        </activity>
     </application>
 </manifest>
 
