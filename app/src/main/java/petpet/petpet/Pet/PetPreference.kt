@@ -31,7 +31,6 @@ class PetPreference (context: Context) {
     }
 
     fun setPetPreference(view : View) {
-
         preference.edit()
                 .putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString())
                 .putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString())
@@ -40,6 +39,7 @@ class PetPreference (context: Context) {
                 .putLong(prefHappiness, 50L)
                 .putLong(prefHealth, 50L)
                 .apply()
+
         setHasPet(true)
     }
 

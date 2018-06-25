@@ -66,6 +66,12 @@ class CreatePetActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
     }
 
+    //hide pet list and display loading image
+    private fun showLoading() {
+        findViewById<LinearLayoutCompat>(R.id.cnp_pet_list).visibility = View.INVISIBLE
+        findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
+    }
+
     fun choosePet(view : View) {
         PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
 
