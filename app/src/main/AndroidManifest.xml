@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="petpet.petpet">
 
     <application
@@ -26,11 +27,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Pet.petMenu"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_pet_menu"
             android:theme="@style/FullscreenTheme"></activity>
-    </application>
 
+        <receiver
+            android:name=".EventAlarmReceiver"
+            android:process=":remote" >
+        </receiver>
+
+        <service
+            android:name=".TimerEventService"
+            android:exported="false" />
+
+        </activity>
+    </application>
 </manifest>
+

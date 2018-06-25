@@ -4,6 +4,8 @@ import org.json.*
  * Created by user on 2018-06-06.
  */
 public class JsonUtil {
+    /*
+    //needs to be updated whenever a class is modified
     companion object {
         fun ToJson (event: PetEvent): String?
         {
@@ -151,4 +153,5 @@ public class JsonUtil {
             return null;
         }
     }
+    */
 }
