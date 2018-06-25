@@ -71,5 +71,4 @@ class PetPreference (context: Context) {
         health += changeValue
         preference.edit().putLong(prefHealth, health).apply()
     }
-
 }
