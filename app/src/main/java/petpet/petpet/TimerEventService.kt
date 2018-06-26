@@ -5,7 +5,7 @@ import android.content.Intent
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.PetPreference
 import java.io.BufferedReader
 import java.io.InputStreamReader
 

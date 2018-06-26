@@ -13,11 +13,7 @@
         <activity android:name=".CreatePetActivity" />
         <activity android:name=".Home" />
         <activity
-            android:name=".Pet.PetActivity"
-            android:label="@string/title_activity_pet"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Pet.SplashActivity"
+            android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
             android:theme="@style/AppTheme.NoActionBar">
@@ -27,12 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".Pet.petMenu"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_pet_menu"
-            android:theme="@style/FullscreenTheme"></activity>
 
         <receiver
             android:name=".EventAlarmReceiver"

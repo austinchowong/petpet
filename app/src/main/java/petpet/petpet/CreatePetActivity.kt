@@ -5,20 +5,16 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.CardView
-import android.support.v7.widget.LinearLayoutCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.Pet
-import petpet.petpet.Pet.PetItemAdapter
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.Pet
+import petpet.petpet.pet.PetItemAdapter
+import petpet.petpet.pet.PetPreference
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.io.*
 
 class CreatePetActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -42,8 +38,7 @@ class CreatePetActivity : AppCompatActivity() {
 
     private fun initialize(context: Context): Array<Pet> {
         val reader = BufferedReader(InputStreamReader(context.assets.open("petlist.json")))
-        val gson = Gson()
-        val petList : List<Pet> = gson.fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
+        val petList : List<Pet> = Gson().fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
         return  petList.toTypedArray()
     }
 
@@ -54,22 +49,11 @@ class CreatePetActivity : AppCompatActivity() {
         val timeline : Timeline = gson.fromJson(reader ,object : TypeToken<Timeline>() {}.type )
         timeline.initTimeline(this)
 
-        val writer = BufferedWriter(OutputStreamWriter(FileOutputStream("PetTimeline")))
-        val jsonString = gson.toJson(timeline);
-        writer.write(jsonString);
-        writer.close();
-    }
-
-    //hide pet list and display loading image
-    private fun showLoading() {
-        findViewById<LinearLayoutCompat>(R.id.cnp_pet_list).visibility = View.INVISIBLE
-        findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
-    }
-
-    //hide pet list and display loading image
-    private fun showLoading() {
-        findViewById<LinearLayoutCompat>(R.id.cnp_pet_list).visibility = View.INVISIBLE
-        findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
+        //TODO: failed to write -> Caused by: java.io.FileNotFoundException: PetTimeline (Read-only file system)
+//        val writer = BufferedWriter(OutputStreamWriter(FileOutputStream("PetTimeline")))
+//        val jsonString = gson.toJson(timeline)
+//        writer.write(jsonString)
+//        writer.close()
     }
 
     fun choosePet(view : View) {
@@ -81,7 +65,7 @@ class CreatePetActivity : AppCompatActivity() {
             TODO: loading pet's timeline and events in system
             findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
          */
-		loadTimeline(view.findViewById<TextView>(R.id.pet_item_name).text.toString())
+		loadTimeline(view.tag.toString())
 
         val intent = Intent(this, Home::class.java)
         finish()
