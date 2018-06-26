@@ -2,8 +2,7 @@ package petpet.petpet
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.PetPreference
 
 /*
     TODO:
@@ -22,7 +21,6 @@ class Home : AppCompatActivity() {
     fun setPetInfo() {
         val preference = PetPreference(this)
         val str = preference.getPetBreed()
-        findViewById<TextView>(R.id.pet_breed).text = str
-        findViewById<TextView>(R.id.pet_description).text = preference.getPetDescription()
+//        findViewById<TextView>(R.id.pet_description).text = preference.getPetDescription()
     }
 }

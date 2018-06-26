@@ -1,4 +1,4 @@
-package petpet.petpet.Pet
+package petpet.petpet.pet
 
 import android.content.Context
 import android.view.View
