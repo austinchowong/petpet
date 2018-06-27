@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="petpet.petpet">
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -10,9 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CreatePetActivity" />
+        <activity android:name=".Home" />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:name=".Pet.PetActivity"
+            android:label="@string/title_activity_pet"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Pet.SplashActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_splash"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +31,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CreatePetActivity"></activity>
         <receiver
             android:name=".EventAlarmReceiver"
             android:process=":remote" >
@@ -30,9 +39,13 @@
         <service
             android:name=".TimerEventService"
             android:exported="false" />
-        <activity android:name=".Home">
 
-        </activity>
+        <activity
+            android:name=".Pet.petMenu"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pet_menu"
+            android:theme="@style/FullscreenTheme"></activity>
+
     </application>
 </manifest>
 

@@ -15,9 +15,10 @@ class PetPreference (context: Context) {
     private val prefDescription: String = "prefDescription"
     private val prefId: String = "prefId"
 
-    val prefTimelineFileName : String = "PetTimeline"
+    val prefTimelineFileName : String = "PetTimeline.json"
     private val prefHunger : String = "prefHunger"
     private val prefHappiness : String = "prefHappiness"
+    private val prefHealth : String = "prefHealth"
 
     val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
 
@@ -30,11 +31,15 @@ class PetPreference (context: Context) {
     }
 
     fun setPetPreference(view : View) {
-        preference.edit().putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString()).apply()
-        preference.edit().putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString()).apply()
-        preference.edit().putLong(prefId, view.tag as Long).apply()
-        preference.edit().putLong(prefHunger, 50L).apply()
-        preference.edit().putLong(prefHappiness, 50L).apply()
+
+        preference.edit()
+                .putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString())
+                .putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString())
+                .putLong(prefId, view.tag as Long)
+                .putLong(prefHunger, 50L)
+                .putLong(prefHappiness, 50L)
+                .putLong(prefHealth, 50L)
+                .apply()
         setHasPet(true)
     }
 
@@ -59,4 +64,12 @@ class PetPreference (context: Context) {
         happiness += changeValue
         preference.edit().putLong(prefHappiness, happiness).apply()
     }
+
+    fun changePetHealth(changeValue: Long)
+    {
+        var health = preference.getLong(prefHealth, 0)
+        health += changeValue
+        preference.edit().putLong(prefHealth, health).apply()
+    }
+
 }

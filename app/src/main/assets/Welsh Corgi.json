@@ -8,14 +8,15 @@
       "startDate": "0/0/15",
       "endDate": "0/0/30",
       "criteriaList": [],
-      "effects": [
-        {
-          "completedEffects": {
+      "effects": {
+        "completedEffects":[
+          {
             "fieldName": "happiness",
             "valueChange": 10
           }
-        }
-      ]
+        ]
+      }
     }
-  ]
+  ],
+  "pastEvents": []
 }
