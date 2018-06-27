@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="petpet.petpet">
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -13,7 +16,11 @@
         <activity android:name=".CreatePetActivity" />
         <activity android:name=".Home" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".Pet.PetActivity"
+            android:label="@string/title_activity_pet"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Pet.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
             android:theme="@style/AppTheme.NoActionBar">
@@ -32,6 +39,13 @@
         <service
             android:name=".TimerEventService"
             android:exported="false" />
+
+        <activity
+            android:name=".Pet.petMenu"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pet_menu"
+            android:theme="@style/FullscreenTheme"></activity>
+
     </application>
 </manifest>
 

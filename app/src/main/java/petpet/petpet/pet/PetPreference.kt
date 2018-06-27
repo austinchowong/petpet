@@ -15,7 +15,7 @@ class PetPreference (context: Context) {
     private val prefDescription: String = "prefDescription"
     private val prefId: String = "prefId"
 
-    val prefTimelineFileName : String = "PetTimeline"
+    val prefTimelineFileName : String = "PetTimeline.json"
     private val prefHunger : String = "prefHunger"
     private val prefHappiness : String = "prefHappiness"
     private val prefHealth : String = "prefHealth"
@@ -39,7 +39,6 @@ class PetPreference (context: Context) {
                 .putLong(prefHappiness, 50L)
                 .putLong(prefHealth, 50L)
                 .apply()
-
         setHasPet(true)
     }
 
