@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.support.v7.widget.CardView
-import android.support.v7.widget.LinearLayoutCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -26,7 +25,6 @@ import android.support.v4.app.ActivityCompat
 import android.os.Build
 import android.content.pm.PackageManager
 import android.widget.Toast
-
 
 class CreatePetActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -52,8 +50,7 @@ class CreatePetActivity : AppCompatActivity() {
 
     private fun initialize(context: Context): Array<Pet> {
         val reader = BufferedReader(InputStreamReader(context.assets.open("petlist.json")))
-        val gson = Gson()
-        val petList : List<Pet> = gson.fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
+        val petList : List<Pet> = Gson().fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
         return  petList.toTypedArray()
     }
 
@@ -145,5 +142,4 @@ class CreatePetActivity : AppCompatActivity() {
         finish()
         startActivity(intent)
     }
-
 }

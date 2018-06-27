@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken
 import petpet.petpet.Pet.PetPreference
 import java.io.*
 
+
 /**
  * Created by user on 2018-06-11.
  */
