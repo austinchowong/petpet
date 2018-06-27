@@ -1,4 +1,4 @@
-package petpet.petpet
+package petpet.petpet.utility
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import java.lang.reflect.AccessibleObject.setAccessible

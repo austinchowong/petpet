@@ -1,4 +1,4 @@
-package petpet.petpet.Pet
+package petpet.petpet.pet
 
 import android.content.Context
 import android.net.Uri
@@ -6,6 +6,7 @@ import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import petpet.petpet.R
@@ -23,8 +24,9 @@ class PetItemAdapter(private val dataSet: Array<Pet>, private val context: Conte
         holder.cardView.tag = dataSet[position].id
         holder.cardView.findViewById<TextView>(R.id.pet_item_name).text =  dataSet[position].breed
         holder.cardView.findViewById<TextView>(R.id.pet_item_description).text =  dataSet[position].description
-        val uri = Uri.parse("android.resource://" + R::class.java.`package`.name + "/mipmap/" + dataSet[position].image)
-        holder.cardView.findViewById<ImageView>(R.id.pet_item_img).setImageURI(uri)//setImageResource(R.mipmap.piggy) //setImageURI(uri)
+        val uri = Uri.parse("android.resource://" + R::class.java.`package`.name + dataSet[position].image)
+        holder.cardView.findViewById<ImageView>(R.id.pet_item_img).setImageURI(uri)
+        holder.cardView.findViewById<Button>(R.id.pet_item_button).tag = dataSet[position].breed
     }
 
     override fun getItemCount(): Int = dataSet.size

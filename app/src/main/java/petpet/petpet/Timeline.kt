@@ -16,11 +16,11 @@ import android.content.Intent
 class Timeline {
     //time of when the timeline was created
     @SerializedName("startDate")
-    public var startDate: Long = 0;
+    var startDate: Long = 0;
 
     //current and future events
     @SerializedName("timeline")
-    public var timeline = ArrayList<PetEvent>();
+    var timeline = ArrayList<PetEvent>();
 
     //events that are in the past, both complete and incomplete
     @SerializedName("pastEvents")

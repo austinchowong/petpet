@@ -1,4 +1,4 @@
-package petpet.petpet.Pet
+package petpet.petpet.pet
 
 import android.content.Context
 import android.view.View
@@ -31,7 +31,6 @@ class PetPreference (context: Context) {
     }
 
     fun setPetPreference(view : View) {
-
         preference.edit()
                 .putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString())
                 .putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString())
@@ -71,5 +70,4 @@ class PetPreference (context: Context) {
         health += changeValue
         preference.edit().putLong(prefHealth, health).apply()
     }
-
 }
