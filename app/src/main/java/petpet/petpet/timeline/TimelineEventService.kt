@@ -1,30 +1,29 @@
-package petpet.petpet
+package petpet.petpet.timeline
 
 import android.app.IntentService
 import android.content.Intent
-import android.os.Environment
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.PetPreference
+import petpet.petpet.utility.NotificationUtil
 import java.io.*
 
-/**
- * Created by user on 2018-06-11.
- */
+class TimelineEventService : IntentService("AlarmService") {
 
-class TimerEventService : IntentService("TimerEventService") {
+    override fun onHandleIntent(p0: Intent?) {
 
-    override fun onHandleIntent(intent: Intent) {
-        // Do the task here
-        Log.i("TimerEventService", "Service running")
+        //val notif = NotificationUtil()
+        //notif.sendNotification(this, "petpet testing", "timelineevent service")
+
         //check to see if any events in the timeline are starting, if so, send a notification
         //for active events, send a notification
         //for events that have ended, send a notification, and set the event information
         val petpreference = PetPreference(this)
-        val f = File(Environment.getExternalStorageDirectory().path + petpreference.prefTimelineFileName)
+        val f = File(filesDir.path + "/" +petpreference.prefTimelineFileName)
         if(f.exists())
         {
+            Log.d("petTimelineEventService", "timeline file found")
             val reader = BufferedReader(FileReader(f))
             val gson = Gson()
             val timeline: Timeline = gson.fromJson(reader, object : TypeToken<Timeline>() {}.type)
@@ -37,7 +36,12 @@ class TimerEventService : IntentService("TimerEventService") {
         }
         else
         {
-            Log.d("TimerEventService", "no timeline file found")
+            Log.d("petTimelineEventService", "no timeline file found")
         }
+
+        Log.d("petAlarm service update", "current pet values: ")
+        Log.d("pethappiness", petpreference.getPetHappiness().toString())
+        Log.d("pethealth", petpreference.getPetHealth().toString())
+        Log.d("pethunger", petpreference.getPetHunger().toString())
     }
 }

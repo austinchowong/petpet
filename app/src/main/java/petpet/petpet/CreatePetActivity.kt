@@ -1,30 +1,30 @@
 package petpet.petpet
 
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
+import android.os.SystemClock
 import android.support.v7.widget.CardView
+import android.support.v7.widget.LinearLayoutCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.Pet
-import petpet.petpet.Pet.PetItemAdapter
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.Pet
+import petpet.petpet.pet.PetItemAdapter
+import petpet.petpet.pet.PetPreference
 import java.io.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import android.app.Activity
-import android.support.v4.app.ActivityCompat
-import android.os.Build
-import android.content.pm.PackageManager
-import android.widget.Toast
+import petpet.petpet.timeline.Timeline
+import petpet.petpet.timeline.TimelineEventService
+import java.util.*
 
 class CreatePetActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -54,34 +54,18 @@ class CreatePetActivity : AppCompatActivity() {
         return  petList.toTypedArray()
     }
 
-    private fun getWritePermissions()
-    {
-        val REQUEST = 112
-
-        if (Build.VERSION.SDK_INT >= 23) {
-            val PERMISSIONS = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            if (!hasPermissions(this, PERMISSIONS)) {
-                ActivityCompat.requestPermissions(this as Activity, PERMISSIONS, REQUEST)
-            } else {
-                loadTimeline()
-            }
-        } else {
-            loadTimeline()
-        }
-    }
-
     private fun loadTimeline()
     {
         val reader = BufferedReader(InputStreamReader(this.assets.open(selectedBreed + ".json")))
         val gson = Gson()
         val timeline : Timeline = gson.fromJson(reader ,object : TypeToken<Timeline>() {}.type )
         timeline.initTimeline(this)
+        scheduleAlarm()
 
         val petpreference = PetPreference(this)
-        val f = File(Environment.getExternalStorageDirectory().path + petpreference.prefTimelineFileName)
+        val f = File(filesDir.path + "/" + petpreference.prefTimelineFileName)
         if(!f.exists())
         {
-
             try {
                 f.createNewFile()
                 Log.d("CreatePet", "created new timeline file at " + f.absolutePath)
@@ -97,34 +81,17 @@ class CreatePetActivity : AppCompatActivity() {
         }
     }
 
-    public override fun onRequestPermissionsResult(requestCode : Int, permissions: Array<String>, grantResults : IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        when (requestCode) {
-            112 -> {
-                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    loadTimeline()
-                } else {
-                    Toast.makeText(this, "The app was not allowed to read your store.", Toast.LENGTH_LONG).show();
-                }
-            }
-        }
-    }
+    fun scheduleAlarm()
+    {
+        val alarmMgr = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(applicationContext, TimelineEventService::class.java)
+        val alarmIntent = PendingIntent.getService(this, 0, intent, 0)
 
-    private fun hasPermissions(context: Context?, permissions: Array<String>): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
-            for (permission in permissions) {
-                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
-                    return false
-                }
-            }
-        }
-        return true
-    }
+        //repeat alarm every 2 mins
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
+                SystemClock.elapsedRealtime(), 1000 * 30,  alarmIntent)
 
-    //hide pet list and display loading image
-    private fun showLoading() {
-        findViewById<LinearLayoutCompat>(R.id.cnp_pet_list).visibility = View.INVISIBLE
-        findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
+        //Log.d("timeline", "alarm started")
     }
 
     fun choosePet(view : View) {
@@ -134,7 +101,7 @@ class CreatePetActivity : AppCompatActivity() {
 
         //  TODO: loading pet's timeline and events in system
             selectedBreed = "Welsh Corgi"
-            getWritePermissions()
+            loadTimeline()
         //  findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
 
 
