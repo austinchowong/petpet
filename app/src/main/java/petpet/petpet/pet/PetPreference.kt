@@ -22,7 +22,7 @@ class PetPreference (context: Context) {
 
     ///pet status fields
     private val numMissedVaccineShots : String = "numMissedVaccineShots"
-
+    private val numTimesWalked : String = "numTimesWalked"
 
     val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
 
@@ -39,9 +39,9 @@ class PetPreference (context: Context) {
                 .putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString())
                 .putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString())
                 .putLong(prefId, view.tag as Long)
-                .putLong(prefHunger, 50L)
-                .putLong(prefHappiness, 50L)
-                .putLong(prefHealth, 50L)
+                .putLong(prefHunger, 60L)
+                .putLong(prefHappiness, 60L)
+                .putLong(prefHealth, 60L)
                 .apply()
         setHasPet(true)
     }
@@ -88,5 +88,19 @@ class PetPreference (context: Context) {
     fun getPetHealth() : Long
     {
         return preference.getLong(prefHealth, 0)
+    }
+
+    fun addMissedVaccineShot()
+    {
+        var numShots = preference.getLong(numMissedVaccineShots, 0)
+        numShots++
+        preference.edit().putLong(numMissedVaccineShots, numShots)
+    }
+
+    fun addWalk()
+    {
+        var numWalks = preference.getLong(numTimesWalked, 0)
+        numWalks++
+        preference.edit().putLong(numTimesWalked, numWalks)
     }
 }

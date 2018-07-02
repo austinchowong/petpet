@@ -183,16 +183,20 @@ class TimelineEvent {
         //eventually timer will check back and see that this event has reached the end but was not fulfilled
         //apply incomplete effects
 
-        if(consequences == null) return
-
         for(peteffect in consequences)
         {
             peteffect.ApplyEffect(context)
         }
+
         var petpreference = PetPreference(context)
         Log.d("failed event", "new pet values: ")
         Log.d("pethappiness", petpreference.getPetHappiness().toString())
         Log.d("pethealth", petpreference.getPetHealth().toString())
         Log.d("pethunger", petpreference.getPetHunger().toString())
+
+        if(name == "vet")
+        {
+            petpreference.addMissedVaccineShot()
+        }
     }
 }

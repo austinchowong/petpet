@@ -6,7 +6,9 @@ import android.util.Log
 import android.widget.Button
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import petpet.petpet.event.WalkFragment
 import petpet.petpet.pet.PetPreference
+import petpet.petpet.stepcounter.Pedometer
 import petpet.petpet.timeline.Timeline
 import java.io.*
 
@@ -18,6 +20,7 @@ import java.io.*
 class Home : AppCompatActivity() {
 
     lateinit var vet_button : Button
+    lateinit var walk_button : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +30,13 @@ class Home : AppCompatActivity() {
 
         vet_button = findViewById(R.id.vet_button)
         vet_button.setOnClickListener {
-            Vet(this).VetVisit()
+            Vet().VetVisit(this)
+        }
+
+        walk_button = findViewById(R.id.walk_button)
+        walk_button.setOnClickListener {
+            val dialog = WalkFragment()
+            dialog.show(fragmentManager, "WalkFragment")
         }
     }
 

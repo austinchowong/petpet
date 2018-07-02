@@ -11,4 +11,7 @@ class TimelineDay {
 
     @SerializedName("eventTracker")
     var eventTracker = mutableMapOf<String,String>();
+
+    @SerializedName("stepsTaken")
+    var stepsTaken : Long = 0;
 }

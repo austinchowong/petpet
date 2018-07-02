@@ -31,6 +31,10 @@
             android:name=".timeline.TimelineEventService"
             android:exported="false" />
 
+        <service
+            android:name=".TaskRemovedService"
+            android:stopWithTask="false" />
+
     </application>
 </manifest>
 

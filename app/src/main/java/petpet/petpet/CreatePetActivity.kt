@@ -60,7 +60,6 @@ class CreatePetActivity : AppCompatActivity() {
         val gson = Gson()
         val timeline : Timeline = gson.fromJson(reader ,object : TypeToken<Timeline>() {}.type )
         timeline.initTimeline(this)
-        scheduleAlarm()
 
         val petpreference = PetPreference(this)
         val f = File(filesDir.path + "/" + petpreference.prefTimelineFileName)
@@ -68,7 +67,6 @@ class CreatePetActivity : AppCompatActivity() {
         {
             try {
                 f.createNewFile()
-                Log.d("CreatePet", "created new timeline file at " + f.absolutePath)
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -79,19 +77,10 @@ class CreatePetActivity : AppCompatActivity() {
             writer.write(jsonString);
             writer.close();
         }
-    }
-
-    fun scheduleAlarm()
-    {
-        val alarmMgr = this.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        val intent = Intent(applicationContext, TimelineEventService::class.java)
-        val alarmIntent = PendingIntent.getService(this, 0, intent, 0)
-
-        //repeat alarm every 2 mins
-        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
-                SystemClock.elapsedRealtime(), 1000 * 30,  alarmIntent)
-
-        //Log.d("timeline", "alarm started")
+        else
+        {
+            Log.e("Timeline", "failed to create timeline file")
+        }
     }
 
     fun choosePet(view : View) {
@@ -100,7 +89,7 @@ class CreatePetActivity : AppCompatActivity() {
         //TODO: load pet info
 
         //  TODO: loading pet's timeline and events in system
-            selectedBreed = "Welsh Corgi"
+            selectedBreed = PetPreference(this).getPetBreed().toString()
             loadTimeline()
         //  findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
 

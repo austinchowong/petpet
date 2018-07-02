@@ -33,15 +33,16 @@ class TimelineEventService : IntentService("AlarmService") {
             val jsonString = gson.toJson(timeline);
             writer.write(jsonString);
             writer.close();
+
+            Log.d("petAlarm service update", "current pet values: ")
+            Log.d("pethappiness", petpreference.getPetHappiness().toString())
+            Log.d("pethealth", petpreference.getPetHealth().toString())
+            Log.d("pethunger", petpreference.getPetHunger().toString())
+            Log.d("petstepsToday", TimelineUtil().getCurrentTimeline(this).GetCurrentTimelineDay().stepsTaken.toString())
         }
         else
         {
             Log.d("petTimelineEventService", "no timeline file found")
         }
-
-        Log.d("petAlarm service update", "current pet values: ")
-        Log.d("pethappiness", petpreference.getPetHappiness().toString())
-        Log.d("pethealth", petpreference.getPetHealth().toString())
-        Log.d("pethunger", petpreference.getPetHunger().toString())
     }
 }
