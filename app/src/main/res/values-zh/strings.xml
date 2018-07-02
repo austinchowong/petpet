@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">宠宠</string>
+    <string name="action_settings">设置</string>
+    <string name="pet_name">威尔士 柯基</string>
+
+    <string name="choose_your_pet">请选择一只你的小可爱</string>
+    <string name="choose_pet">Pick Me</string>
+    <string name="coming_soon">敬请期待哦</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="PET_UPDATE_CHANNEL_ID">收听来自宠物的呼唤</string>
+    <string name="hundred_percent">一百分</string>
+
+    <!--settingsScreen-->
+    <string name="settings">设置</string>
+    <string name="language">语言</string>
+
+    <!--settings-->
+    <string name="KEY_SETTING_LANGUAGE">setting_language</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+</resources>

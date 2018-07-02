@@ -2,19 +2,22 @@
     <string name="app_name">PetPet</string>
     <string name="action_settings">Settings</string>
     <string name="pet_name">Welsh Corgi</string>
-    <string name="pet_list">petlist.json</string>
 
     <string name="choose_your_pet">Choose Your Pet</string>
     <string name="choose_pet">Pick Me</string>
     <string name="coming_soon">Coming Soon…</string>
-    <string name="title_activity_pet">PetActivity</string>
 
-    <string name="title_activity_splash">PetPet</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="title_activity_pet_menu">petMenu</string>
-
     <string name="PET_UPDATE_CHANNEL_ID">Petpet update notification</string>
     <string name="hundred_percent">100%</string>
+
+    <!--settingsScreen-->
+    <string name="settings">Settings</string>
+    <string name="language">Language</string>
+
+    <!--settings-->
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="KEY_SETTING_LANGUAGE">setting_language</string>
 </resources>

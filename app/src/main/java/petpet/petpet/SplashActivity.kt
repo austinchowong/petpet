@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import petpet.petpet.pet.PetPreference
+import petpet.petpet.utility.LanguageUtil
 import petpet.petpet.utility.NotificationUtil
 import kotlin.concurrent.thread
 
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
 
         //set notification channel
         NotificationUtil().createNotificationChannel(this)
+        LanguageUtil().setLanguageBaseOnSettings(this)
     }
 
     override fun onStart() {

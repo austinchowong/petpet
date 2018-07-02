@@ -2,7 +2,10 @@ package petpet.petpet
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import petpet.petpet.pet.PetPreference
+import android.view.View
+import android.widget.ImageButton
+import petpet.petpet.settings.SettingsContainerFragment
+import petpet.petpet.settings.SettingsFragment
 
 /*
     TODO:
@@ -15,12 +18,21 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        setPetInfo()
+        //display settings fragment
+        setSettings()
     }
 
-    fun setPetInfo() {
-        val preference = PetPreference(this)
-        val str = preference.getPetBreed()
-//        findViewById<TextView>(R.id.pet_description).text = preference.getPetDescription()
+    fun setSettings()
+    {
+        findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
+            SettingsContainerFragment().show(fragmentManager, "SettingsContainerFragment")
+        }
     }
+
+    fun refreshHome() {
+        val intent = intent
+        startActivity(intent)
+        finish()
+    }
+
 }

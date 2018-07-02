@@ -14,9 +14,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.Pet
-import petpet.petpet.Pet.PetItemAdapter
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.Pet
+import petpet.petpet.pet.PetItemAdapter
+import petpet.petpet.pet.PetPreference
 import java.io.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -24,6 +24,7 @@ import android.app.Activity
 import android.support.v4.app.ActivityCompat
 import android.os.Build
 import android.content.pm.PackageManager
+import android.support.v7.widget.LinearLayoutCompat
 import android.widget.Toast
 
 class CreatePetActivity : AppCompatActivity() {
@@ -91,27 +92,27 @@ class CreatePetActivity : AppCompatActivity() {
         }
         if(f.exists()) {
             val writer = BufferedWriter(OutputStreamWriter(FileOutputStream(f)))
-            val jsonString = gson.toJson(timeline);
-            writer.write(jsonString);
-            writer.close();
+            val jsonString = gson.toJson(timeline)
+            writer.write(jsonString)
+            writer.close()
         }
     }
 
-    public override fun onRequestPermissionsResult(requestCode : Int, permissions: Array<String>, grantResults : IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    override fun onRequestPermissionsResult(requestCode : Int, permissions: Array<String>, grantResults : IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             112 -> {
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     loadTimeline()
                 } else {
-                    Toast.makeText(this, "The app was not allowed to read your store.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "The app was not allowed to read your store.", Toast.LENGTH_LONG).show()
                 }
             }
         }
     }
 
     private fun hasPermissions(context: Context?, permissions: Array<String>): Boolean {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null) {
             for (permission in permissions) {
                 if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
                     return false
@@ -119,12 +120,6 @@ class CreatePetActivity : AppCompatActivity() {
             }
         }
         return true
-    }
-
-    //hide pet list and display loading image
-    private fun showLoading() {
-        findViewById<LinearLayoutCompat>(R.id.cnp_pet_list).visibility = View.INVISIBLE
-        findViewById<ImageView>(R.id.cnp_loading_indicator).visibility = View.VISIBLE
     }
 
     fun choosePet(view : View) {

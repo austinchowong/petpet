@@ -6,7 +6,7 @@ import android.os.Environment
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import petpet.petpet.Pet.PetPreference
+import petpet.petpet.pet.PetPreference
 import java.io.*
 
 /**
@@ -31,9 +31,9 @@ class TimerEventService : IntentService("TimerEventService") {
             timeline.CheckTimeline(this)
 
             val writer = BufferedWriter(OutputStreamWriter(FileOutputStream(f)))
-            val jsonString = gson.toJson(timeline);
-            writer.write(jsonString);
-            writer.close();
+            val jsonString = gson.toJson(timeline)
+            writer.write(jsonString)
+            writer.close()
         }
         else
         {
