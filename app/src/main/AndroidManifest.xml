@@ -16,11 +16,7 @@
         <activity android:name=".CreatePetActivity" />
         <activity android:name=".Home" />
         <activity
-            android:name=".Pet.PetActivity"
-            android:label="@string/title_activity_pet"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Pet.SplashActivity"
+            android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
             android:theme="@style/AppTheme.NoActionBar">
@@ -31,20 +27,13 @@
             </intent-filter>
         </activity>
 
-        <receiver
-            android:name=".EventAlarmReceiver"
-            android:process=":remote" >
-        </receiver>
-
         <service
-            android:name=".TimerEventService"
+            android:name=".timeline.TimelineEventService"
             android:exported="false" />
 
-        <activity
-            android:name=".Pet.petMenu"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_pet_menu"
-            android:theme="@style/FullscreenTheme"></activity>
+        <service
+            android:name=".TaskRemovedService"
+            android:stopWithTask="false" />
 
     </application>
 </manifest>

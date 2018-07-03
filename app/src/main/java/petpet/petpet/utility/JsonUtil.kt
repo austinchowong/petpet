@@ -7,7 +7,7 @@ public class JsonUtil {
     /*
     //needs to be updated whenever a class is modified
     companion object {
-        fun ToJson (event: PetEvent): String?
+        fun ToJson (event: TimelineEvent): String?
         {
             try {
                 // Here we convert Java Object to JSON
@@ -35,10 +35,10 @@ public class JsonUtil {
             return null;
         }
 
-        fun PetEventFromJson(string: String): PetEvent?
+        fun PetEventFromJson(string: String): TimelineEvent?
         {
             try {
-                var petevent = PetEvent();
+                var petevent = TimelineEvent();
                 var obj = JSONObject(string);
                 petevent.name = obj.getString("name");
                 petevent.description = obj.getString("description");
