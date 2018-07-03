@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
 import petpet.petpet.pet.PetPreference
+import petpet.petpet.utility.LanguageUtil
 import petpet.petpet.timeline.TimelineEventService
 import petpet.petpet.utility.NotificationUtil
 import kotlin.concurrent.thread
@@ -18,8 +19,11 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        //set notification channel
+        //setup notification channel
         NotificationUtil().createNotificationChannel(this)
+
+        //setup language
+        LanguageUtil().setLanguageBaseOnSettings(this)
 
         //setup onTaskRemovedService
         startService(Intent(baseContext, TaskRemovedService::class.java))

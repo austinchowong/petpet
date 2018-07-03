@@ -25,6 +25,12 @@ import java.io.InputStreamReader
 import petpet.petpet.timeline.Timeline
 import petpet.petpet.timeline.TimelineEventService
 import java.util.*
+import android.app.Activity
+import android.support.v4.app.ActivityCompat
+import android.os.Build
+import android.content.pm.PackageManager
+import android.widget.Toast
+import petpet.petpet.store.StoreHelper
 
 class CreatePetActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -37,21 +43,19 @@ class CreatePetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_pet)
 
-        val list_pet: Array<Pet> = initialize(this)
+        //Load available list of pets
+        val reader = BufferedReader(InputStreamReader(assets.open("petlist.json")))
+        val petList : List<Pet> = Gson().fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
+        val list_pet =  petList.toTypedArray()
+
+        //init RecyclerView
         viewManager = LinearLayoutManager(this)
         viewAdapter = PetItemAdapter(list_pet, this)
-
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview_create_pet).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
         }
-    }
-
-    private fun initialize(context: Context): Array<Pet> {
-        val reader = BufferedReader(InputStreamReader(context.assets.open("petlist.json")))
-        val petList : List<Pet> = Gson().fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
-        return  petList.toTypedArray()
     }
 
     private fun loadTimeline()
@@ -73,9 +77,9 @@ class CreatePetActivity : AppCompatActivity() {
         }
         if(f.exists()) {
             val writer = BufferedWriter(OutputStreamWriter(FileOutputStream(f)))
-            val jsonString = gson.toJson(timeline);
-            writer.write(jsonString);
-            writer.close();
+            val jsonString = gson.toJson(timeline)
+            writer.write(jsonString)
+            writer.close()
         }
         else
         {
@@ -84,15 +88,15 @@ class CreatePetActivity : AppCompatActivity() {
     }
 
     fun choosePet(view : View) {
+        //TODO: load pet info
         PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
 
-        //TODO: load pet info
-
-        //  TODO: loading pet's timeline and events in system
+        //TODO: loading pet's timeline and events in system
             selectedBreed = PetPreference(this).getPetBreed().toString()
             loadTimeline()
-        //  findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
 
+        //load store info for selected breed
+        StoreHelper().initStoreInfo(this, selectedBreed)
 
         val intent = Intent(this, Home::class.java)
         finish()
