@@ -94,13 +94,13 @@ class PetPreference (context: Context) {
     {
         var numShots = preference.getLong(numMissedVaccineShots, 0)
         numShots++
-        preference.edit().putLong(numMissedVaccineShots, numShots)
+        preference.edit().putLong(numMissedVaccineShots, numShots).apply()
     }
 
     fun addWalk()
     {
         var numWalks = preference.getLong(numTimesWalked, 0)
         numWalks++
-        preference.edit().putLong(numTimesWalked, numWalks)
+        preference.edit().putLong(numTimesWalked, numWalks).apply()
     }
 }

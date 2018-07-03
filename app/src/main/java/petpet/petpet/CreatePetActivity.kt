@@ -1,19 +1,13 @@
 package petpet.petpet
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.SystemClock
 import android.support.v7.widget.CardView
-import android.support.v7.widget.LinearLayoutCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import petpet.petpet.pet.Pet
@@ -23,13 +17,6 @@ import java.io.*
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import petpet.petpet.timeline.Timeline
-import petpet.petpet.timeline.TimelineEventService
-import java.util.*
-import android.app.Activity
-import android.support.v4.app.ActivityCompat
-import android.os.Build
-import android.content.pm.PackageManager
-import android.widget.Toast
 import petpet.petpet.store.StoreHelper
 
 class CreatePetActivity : AppCompatActivity() {

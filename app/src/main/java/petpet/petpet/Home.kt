@@ -2,20 +2,13 @@ package petpet.petpet
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import petpet.petpet.event.WalkFragment
 import android.widget.ImageButton
 import petpet.petpet.pet.PetPreference
-import petpet.petpet.settings.SettingsContainerFragment
 import petpet.petpet.store.StoreCategory
 import petpet.petpet.store.StoreHelper
 import petpet.petpet.store.StoreType
-import petpet.petpet.stepcounter.Pedometer
-import petpet.petpet.timeline.Timeline
-import java.io.*
 
 /*
     TODO:
@@ -44,14 +37,14 @@ class Home : AppCompatActivity() {
             dialog.show(fragmentManager, "WalkFragment")
         }
 
-        //init settings fragment
-        findViewById<ImageButton>(R.id.home_settings).setOnClickListener {
-            SettingsContainerFragment().show(fragmentManager, "SettingsContainerFragment")
-        }
-
         //load store info to current activities
         val breed = PetPreference(this).getPetBreed().toString()
         store = StoreHelper().loadingStoreInfo(this, breed)
+
+        //init menu button
+        findViewById<ImageButton>(R.id.home_menuButton).setOnClickListener{
+            MenuFragment().show(fragmentManager, "MenuFragment")
+        }
     }
 
     fun refreshHome() {
