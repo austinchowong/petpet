@@ -10,8 +10,6 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import petpet.petpet.pet.Pet
@@ -24,8 +22,8 @@ import android.app.Activity
 import android.support.v4.app.ActivityCompat
 import android.os.Build
 import android.content.pm.PackageManager
-import android.support.v7.widget.LinearLayoutCompat
 import android.widget.Toast
+import petpet.petpet.store.StoreHelper
 
 class CreatePetActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -38,21 +36,19 @@ class CreatePetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_pet)
 
-        val list_pet: Array<Pet> = initialize(this)
+        //Load available list of pets
+        val reader = BufferedReader(InputStreamReader(assets.open("petlist.json")))
+        val petList : List<Pet> = Gson().fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
+        val list_pet =  petList.toTypedArray()
+
+        //init RecyclerView
         viewManager = LinearLayoutManager(this)
         viewAdapter = PetItemAdapter(list_pet, this)
-
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview_create_pet).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
         }
-    }
-
-    private fun initialize(context: Context): Array<Pet> {
-        val reader = BufferedReader(InputStreamReader(context.assets.open("petlist.json")))
-        val petList : List<Pet> = Gson().fromJson(reader ,object : TypeToken<List<Pet>>() {}.type )
-        return  petList.toTypedArray()
     }
 
     private fun getWritePermissions()
@@ -123,14 +119,16 @@ class CreatePetActivity : AppCompatActivity() {
     }
 
     fun choosePet(view : View) {
+        //TODO: load pet info
         PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
 
-        //TODO: load pet info
+        selectedBreed = "Welsh Corgi"
 
-        //  TODO: loading pet's timeline and events in system
-            selectedBreed = "Welsh Corgi"
-            getWritePermissions()
-        //  findViewById<CardView>(R.id.pet_item).tag contains an id for selected breed
+        //load store info for selected breed
+        StoreHelper().initStoreInfo(this, selectedBreed)
+
+        //TODO: loading pet's timeline and events in system
+        getWritePermissions()
 
 
         val intent = Intent(this, Home::class.java)

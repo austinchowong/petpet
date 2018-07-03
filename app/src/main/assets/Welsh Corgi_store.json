@@ -1,0 +1,61 @@
+[
+  {
+    "category": "food",
+    "description": "...",
+    "items": [
+      {
+        "name": "food",
+        "description": "food food food",
+        "category": "food",
+        "image": "/mipmap/piggy",
+        "price": 40,
+        "happiness": 5,
+        "hunger": 10,
+        "health": 0
+      }
+    ]
+  },
+  {
+    "category": "treat",
+    "description": "...",
+    "items": [
+      {
+        "name": "treat",
+        "description": "treat treat treat",
+        "category": "treat",
+        "image": "",
+        "price": 10,
+        "happiness": 10,
+        "hunger": 10,
+        "health": 0
+      }
+    ]
+  },
+  {
+    "category": "toy",
+    "description": "...",
+    "items": [
+      {
+        "name": "Ball",
+        "description": "ball ball ball",
+        "category": "toy",
+        "image": "/drawable/leo",
+        "price": 100,
+        "happiness": 20,
+        "hunger": -10,
+        "health": 0
+      },
+      {
+        "name": "Frisbee",
+        "description": "frisbee frisbee frisbee",
+        "category": "toy",
+        "image": "/mipmap/piggy",
+        "price": 200,
+        "happiness": 20,
+        "hunger": -10,
+        "health": 0
+      }
+    ]
+
+  }
+]
