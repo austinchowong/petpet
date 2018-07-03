@@ -13,6 +13,7 @@ class SettingsContainerFragment : DialogFragment() {
         val builder = AlertDialog.Builder(activity)
         val inflater = activity.layoutInflater
 
+        //TODO: there is a bug -> duplicate petpet.petpet.settings.SettingsFragment
         builder.setTitle(R.string.settings)
                 .setView(inflater.inflate(R.layout.fragment_settings_container, null))
 
