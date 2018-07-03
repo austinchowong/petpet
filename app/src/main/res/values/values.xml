@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <integer name="daily_step_count">40</integer>
+    <integer name="min_step_count">10</integer>
+
+</resources>
