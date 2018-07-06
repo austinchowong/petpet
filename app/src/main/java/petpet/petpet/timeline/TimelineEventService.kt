@@ -5,6 +5,7 @@ import android.content.Intent
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import petpet.petpet.R
 import petpet.petpet.pet.PetPreference
 import petpet.petpet.utility.NotificationUtil
 import java.io.*
@@ -12,17 +13,20 @@ import java.io.*
 class TimelineEventService : IntentService("AlarmService") {
 
     override fun onHandleIntent(p0: Intent?) {
-
-        //val notif = NotificationUtil()
-        //notif.sendNotification(this, "petpet testing", "timelineevent service")
-
-        //check to see if any events in the timeline are starting, if so, send a notification
-        //for active events, send a notification
-        //for events that have ended, send a notification, and set the event information
         val petpreference = PetPreference(this)
+
+        //check timeline events to see if any changes occurred
         val f = File(filesDir.path + "/" +petpreference.prefTimelineFileName)
         if(f.exists())
         {
+            //reduce pet status over time
+            if(petpreference.getPetHunger() < this.resources.getInteger(R.integer.min_hunger_to_lose_health).toLong())
+            {
+                petpreference.changePetHealth(this.resources.getInteger(R.integer.health_change_per_min).toLong())
+            }
+            petpreference.changePetHappiness(this.resources.getInteger(R.integer.happiness_change_per_min).toLong())
+            petpreference.changePetHunger(this.resources.getInteger(R.integer.hunger_change_per_min).toLong())
+
             Log.d("petTimelineEventService", "timeline file found")
             val reader = BufferedReader(FileReader(f))
             val gson = Gson()

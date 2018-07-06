@@ -39,25 +39,7 @@ public class WalkFragment: DialogFragment(), SensorEventListener, StepListener {
 
         val fragmentView = inflater.inflate(R.layout.fragment_walk, null)
 
-        var stopButton : Button = fragmentView.findViewById(R.id.Stop)
-        var startButton : Button = fragmentView.findViewById(R.id.Start)
-
-        sensorManager = inflater!!.context.getSystemService(SENSOR_SERVICE) as SensorManager
-        accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        simpleStepDetector = StepDetector()
-        simpleStepDetector.registerListener(this)
-
-        setVisibility(fragmentView)
-
-        startButton.setOnClickListener{
-            TryStartTracking()
-            getFragmentManager().beginTransaction().remove(this).commit();
-        }
-
-        stopButton.setOnClickListener{
-            TryStopTracking()
-            getFragmentManager().beginTransaction().remove(this).commit();
-        }
+        updateView(fragmentView)
 
         builder.setTitle("Walk")
                 .setView(fragmentView)
@@ -66,6 +48,31 @@ public class WalkFragment: DialogFragment(), SensorEventListener, StepListener {
                 })
 
         return builder.create()
+    }
+
+    fun updateView(view : View)
+    {
+        var stopButton : Button = view.findViewById(R.id.Stop)
+        var startButton : Button = view.findViewById(R.id.Start)
+
+        sensorManager = view.context.getSystemService(SENSOR_SERVICE) as SensorManager
+        accel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        simpleStepDetector = StepDetector()
+        simpleStepDetector.registerListener(this)
+
+        setVisibility(view)
+
+        startButton.setOnClickListener{
+            TryStartTracking()
+            //getFragmentManager().beginTransaction().remove(this).commit();
+            updateView(view)
+        }
+
+        stopButton.setOnClickListener{
+            TryStopTracking()
+            //getFragmentManager().beginTransaction().remove(this).commit();
+            updateView(view)
+        }
     }
 
     fun setVisibility(view: View) {
@@ -113,7 +120,6 @@ public class WalkFragment: DialogFragment(), SensorEventListener, StepListener {
     override fun step(timeNs: Long) {
         if(Pedometer.isWalking) {
             Pedometer.numSteps++
-            Log.d("Steps taken", Pedometer.numSteps.toString())
         }
     }
 
