@@ -1,8 +1,10 @@
 package petpet.petpet.pet
 
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.widget.TextView
+import petpet.petpet.Home
 import petpet.petpet.R
 
 /*
@@ -25,6 +27,7 @@ class PetPreference (context: Context) {
     private val numTimesWalked : String = "numTimesWalked"
 
     val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
+    val context = context
 
     fun hasPet() : Boolean {
         return preference.getBoolean(hasPet, false)
@@ -59,6 +62,7 @@ class PetPreference (context: Context) {
         var hunger = preference.getLong(prefHunger, 0)
         hunger += changeValue
         preference.edit().putLong(prefHunger, hunger).apply()
+        Log.d("change pet hunger", hunger.toString())
     }
 
     fun getPetHunger() : Long
@@ -71,6 +75,7 @@ class PetPreference (context: Context) {
         var happiness = preference.getLong(prefHappiness, 0)
         happiness += changeValue
         preference.edit().putLong(prefHappiness, happiness).apply()
+        Log.d("change pet happiness", happiness.toString())
     }
 
     fun getPetHappiness() : Long
@@ -83,6 +88,7 @@ class PetPreference (context: Context) {
         var health = preference.getLong(prefHealth, 0)
         health += changeValue
         preference.edit().putLong(prefHealth, health).apply()
+        Log.d("change pet health", health.toString())
     }
 
     fun getPetHealth() : Long

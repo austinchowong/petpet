@@ -48,6 +48,11 @@ class Timeline {
         return timeline[GetCurrentDay()]
     }
 
+    fun GetStepsTakenToday() : Long
+    {
+        return timeline[GetCurrentDay()].stepsTaken
+    }
+
     fun UpdateEventTrackerToday(eventname : String, status : String)
     {
         timeline[GetCurrentDay()].eventTracker[eventname] = status
