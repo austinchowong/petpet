@@ -34,7 +34,6 @@ class TaskRemovedService : Service() {
         //check if currently tracking information
         if(Pedometer.isWalking)
         {
-            Log.d("taskremoved", "stop tracking pedometer")
             Pedometer.StopTracking(this)
         }
 
@@ -44,7 +43,7 @@ class TaskRemovedService : Service() {
         val alarmIntent = PendingIntent.getService(this, 1, intent, 0)
 
         alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
-                SystemClock.elapsedRealtime(), 1000 * 30,  alarmIntent)
+                SystemClock.elapsedRealtime(), 1000 * 60,  alarmIntent)
 
         stopSelf()
     }
