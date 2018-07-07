@@ -29,5 +29,7 @@
     <string name="_100">$100</string>
     <string name="buy">购买</string>
     <string name="play">玩耍</string>
+    <string name="walk">散步</string>
+    <string name="Vet">宠物诊所</string>
 
 </resources>

@@ -12,6 +12,16 @@
         "happiness": 5,
         "hunger": 10,
         "health": 0
+      },
+      {
+        "name": "five-star dog food",
+        "description": "five-star dog food is the best dog food",
+        "category": "food",
+        "image": "/mipmap/piggy",
+        "price": 40,
+        "happiness": 5,
+        "hunger": 10,
+        "health": 0
       }
     ]
   },
@@ -20,10 +30,10 @@
     "description": "...",
     "items": [
       {
-        "name": "treat",
+        "name": "bone",
         "description": "treat treat treat",
         "category": "treat",
-        "image": "",
+        "image":  "/mipmap/piggy",
         "price": 10,
         "happiness": 10,
         "hunger": 10,

@@ -33,4 +33,5 @@
     <string name="_100">$100</string>
     <string name="buy">Buy</string>
     <string name="play">Play</string>
+    <string name="walk">Walk</string>
 </resources>
