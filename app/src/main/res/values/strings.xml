@@ -34,4 +34,6 @@
     <string name="buy">Buy</string>
     <string name="play">Play</string>
     <string name="walk">Walk</string>
+    <string name="_0">0</string>
+    <string name="feed">feed</string>
 </resources>

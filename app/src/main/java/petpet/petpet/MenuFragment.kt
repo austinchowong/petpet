@@ -6,6 +6,7 @@ import android.app.DialogFragment
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.widget.ImageButton
+import petpet.petpet.event.FeedFragment
 import petpet.petpet.event.WalkFragment
 import petpet.petpet.settings.SettingsContainerFragment
 import petpet.petpet.store.StoreFragment
@@ -19,22 +20,28 @@ class MenuFragment : DialogFragment() {
 
         val view = inflater.inflate(R.layout.fragment_menu, null)
 
-        //setup menu_settings listener
+        // menu_settings listener
         view.findViewById<ImageButton>(R.id.menu_settings).setOnClickListener {
             SettingsContainerFragment().show(fragmentManager, "SettingsContainerFragment")
         }
 
-        //setup menu_store listener
+        // menu_store listener
         view.findViewById<ImageButton>(R.id.menu_store).setOnClickListener{
             StoreFragment().show(fragmentManager,"StoreFragment")
         }
 
-        var vet_button = view.findViewById<ImageButton>(R.id.menu_vet)
+        // menu_feed listener
+        view.findViewById<ImageButton>(R.id.menu_feed).setOnClickListener{
+            FeedFragment().show(fragmentManager, "FeedFragment")
+        }
+
+
+        val vet_button = view.findViewById<ImageButton>(R.id.menu_vet)
         vet_button.setOnClickListener {
             Vet().VetVisit(view.context)
         }
 
-        var walk_button = view.findViewById<ImageButton>(R.id.menu_walk)
+        val walk_button = view.findViewById<ImageButton>(R.id.menu_walk)
         walk_button.setOnClickListener {
             val dialog = WalkFragment()
             dialog.show(fragmentManager, "WalkFragment")
