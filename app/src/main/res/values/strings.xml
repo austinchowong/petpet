@@ -24,4 +24,14 @@
     <!--settings-->
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="KEY_SETTING_LANGUAGE">setting_language</string>
+
+
+    <string name="store">Store</string>
+    <string name="food">Food</string>
+    <string name="item">Item</string>
+    <string name="item_description_multiLine">There are multiple lines of item description</string>
+    <string name="_100">$100</string>
+    <string name="buy">Buy</string>
+    <string name="play">Play</string>
+    <string name="walk">Walk</string>
 </resources>

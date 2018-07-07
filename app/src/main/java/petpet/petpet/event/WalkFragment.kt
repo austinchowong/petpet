@@ -41,7 +41,7 @@ public class WalkFragment: DialogFragment(), SensorEventListener, StepListener {
 
         updateView(fragmentView)
 
-        builder.setTitle("Walk")
+        builder.setTitle(resources.getString(R.string.walk))
                 .setView(fragmentView)
                 .setPositiveButton("OK", { dialog, whichButton ->
                     // do something
