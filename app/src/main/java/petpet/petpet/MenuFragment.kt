@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.widget.ImageButton
 import petpet.petpet.settings.SettingsContainerFragment
+import petpet.petpet.store.StoreFragment
 
 class MenuFragment : DialogFragment() {
 
@@ -20,6 +21,11 @@ class MenuFragment : DialogFragment() {
         //setup menu_settings listener
         view.findViewById<ImageButton>(R.id.menu_settings).setOnClickListener {
             SettingsContainerFragment().show(fragmentManager, "SettingsContainerFragment")
+        }
+
+        //setup menu_store listener
+        view.findViewById<ImageButton>(R.id.menu_store).setOnClickListener{
+            StoreFragment().show(fragmentManager,"StoreFragment")
         }
 
         builder.setTitle("Menu")

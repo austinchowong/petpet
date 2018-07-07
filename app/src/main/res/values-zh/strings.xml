@@ -22,4 +22,12 @@
     <string name="KEY_SETTING_LANGUAGE">setting_language</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
+    <string name="store">商店</string>
+    <string name="food">食物</string>
+    <string name="item">物品</string>
+    <string name="item_description_multiLine">好多好多的物品介绍</string>
+    <string name="_100">$100</string>
+    <string name="buy">购买</string>
+    <string name="play">玩耍</string>
+
 </resources>
