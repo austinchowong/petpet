@@ -12,7 +12,7 @@ import petpet.petpet.store.ItemPreferences
 import petpet.petpet.store.StoreItem
 import java.util.ArrayList
 
-class GeneralAdapter(private val dataSet: ArrayList<StoreItem>, private val context: Context):  BaseAdapter() {
+class GeneralAdapter(private val dataSet: ArrayList<StoreItem>, private val eventName : String, private val context: Context):  BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View? {
         val name = dataSet[position].name
         val category = dataSet[position].category.name
@@ -32,6 +32,7 @@ class GeneralAdapter(private val dataSet: ArrayList<StoreItem>, private val cont
 
         //set purchase button
         val button = cardView.findViewById<Button>(R.id.general_item_feed)
+        button.text = eventName
         button.isClickable = ItemPreferences(context, name).getInt(name) > 0
 //        button.visibility = if (ItemPreferences(context, name).getInt(name) > 0) View.VISIBLE else View.GONE
 

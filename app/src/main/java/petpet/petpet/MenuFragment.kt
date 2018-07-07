@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.widget.ImageButton
 import petpet.petpet.event.FeedFragment
+import petpet.petpet.event.PlayFragment
 import petpet.petpet.event.WalkFragment
 import petpet.petpet.settings.SettingsContainerFragment
 import petpet.petpet.store.StoreFragment
@@ -35,6 +36,10 @@ class MenuFragment : DialogFragment() {
             FeedFragment().show(fragmentManager, "FeedFragment")
         }
 
+        // menu_feed listener
+        view.findViewById<ImageButton>(R.id.menu_play).setOnClickListener{
+            PlayFragment().show(fragmentManager, "PlayFragment")
+        }
 
         val vet_button = view.findViewById<ImageButton>(R.id.menu_vet)
         vet_button.setOnClickListener {

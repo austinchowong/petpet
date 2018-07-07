@@ -12,6 +12,7 @@ import petpet.petpet.store.StoreType
 
 class FeedFragment: DialogFragment() {
     private val categories: Array<StoreType> = arrayOf(StoreType.TREAT, StoreType.FOOD)
+    private val eventName :String = "Feed"
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
@@ -21,9 +22,9 @@ class FeedFragment: DialogFragment() {
         val gridView : GridView = inflater.inflate(R.layout.fragment_store, null) as GridView
         val items =  java.util.ArrayList<StoreItem>()
         categories.forEach { categories -> items += (activity as Home).store.getValue(categories)?.items }
-        gridView.adapter = GeneralAdapter(items, activity)
+        gridView.adapter = GeneralAdapter(items, eventName, activity)
 
-        builder.setTitle("Feed")
+        builder.setTitle(eventName)
                 .setView(gridView)
                 .setPositiveButton("OK", { dialog, whichButton -> })
 
