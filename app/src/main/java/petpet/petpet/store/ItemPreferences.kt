@@ -3,10 +3,10 @@ package petpet.petpet.store
 import android.content.Context
 
 /*
-    StorePreferences class uses to store StoreItems based on StoreCategory.
+    ItemPreferences class uses to store StoreItems based on StoreCategory.
     Each StoreCategory is saved as a preferences file.
  */
-class StorePreferences(context: Context, category : String) {
+class ItemPreferences(context: Context, category : String) {
     private val preferences = context.getSharedPreferences(category, Context.MODE_PRIVATE)
 
     fun getString(key: String) : String {

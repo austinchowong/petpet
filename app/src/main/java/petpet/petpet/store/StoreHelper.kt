@@ -12,7 +12,7 @@ class StoreHelper {
         val reader = BufferedReader(InputStreamReader(context.assets.open(breed + "_store.json")))
         val categories : ArrayList<StoreCategory> = Gson().fromJson(reader ,object : TypeToken<List<StoreCategory>>() {}.type )
         for (category in categories) {
-            val storePreferences = StorePreferences(context, category.category.name)
+            val storePreferences = ItemPreferences(context, category.category.name)
             for (item in category.items) {
                 storePreferences.setInt(item.name, 0)
             }

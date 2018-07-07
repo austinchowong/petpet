@@ -20,7 +20,7 @@ class StoreItemAdapter(private val dataSet: ArrayList<StoreItem>, private val co
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         //setup a storeItem
-        val cardView :CardView = LayoutInflater.from(context).inflate(R.layout.store_item, parent, false) as CardView
+        val cardView : CardView = LayoutInflater.from(context).inflate(R.layout.store_item, parent, false) as CardView
         cardView.findViewById<TextView>(R.id.store_item_name).text = dataSet[position].name
         cardView.findViewById<TextView>(R.id.store_item_description).text = dataSet[position].description
 
@@ -35,7 +35,7 @@ class StoreItemAdapter(private val dataSet: ArrayList<StoreItem>, private val co
         //set purchase button
         cardView.findViewById<Button>(R.id.store_item_buy).setOnClickListener {
             //Increment item count
-            StorePreferences(context, dataSet[position].category.name).addOne(dataSet[position].name)
+            ItemPreferences(context, dataSet[position].category.name).addOne(dataSet[position].name)
 
             //TODO:: add the cost to user account
 
