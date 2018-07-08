@@ -17,6 +17,7 @@ class LanguageUtil {
         }
     }
 
+    //when the language set and the system language is not supported by the app
     fun updateSettingsBaseOnSystem(context: Context){
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
         if(sharedPreferences.getBoolean(SET_LANGUAGE, false)) return
@@ -30,6 +31,7 @@ class LanguageUtil {
     }
 
     fun setLanguage(language: String, context: Context) {
+        if (language.isEmpty()) return
         val config = context.resources.configuration
         config.setLocale(Locale(language))
         context.resources.updateConfiguration(config, context.resources.displayMetrics)

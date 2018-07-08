@@ -16,7 +16,6 @@ class PetPreference (val context: Context) {
     private val prefBreed: String = "prefBreed"
     private val prefDescription: String = "prefDescription"
     private val prefId: String = "prefId"
-    private val petName : String = "prefName"
 
     val prefTimelineFileName : String = "PetTimeline.json"
     private val prefHunger : String = "prefHunger"
@@ -110,19 +109,7 @@ class PetPreference (val context: Context) {
         preference.edit().putLong(numTimesWalked, numWalks).apply()
     }
 
-    fun getPetName() :String {
-        return preference.getString(petName, "")
-    }
-
-    fun setPetName(name : String) {
-        preference.edit().putString(petName, name).apply()
-    }
-
     fun getPetPreferenceName() :String {
         return prefFileName
-    }
-
-    fun getPetNameKey() :String {
-        return petName
     }
 }

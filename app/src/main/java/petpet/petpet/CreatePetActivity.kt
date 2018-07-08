@@ -85,7 +85,7 @@ class CreatePetActivity : AppCompatActivity() {
         //load store info for selected breed
         StoreHelper().initStoreInfo(this, selectedBreed)
 
-        val intent = Intent(this, Home::class.java)
+        val intent = Intent(this, CreateName::class.java)
         finish()
         startActivity(intent)
     }
