@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import petpet.petpet.R
+import petpet.petpet.pet.PetPreference
 import petpet.petpet.store.ItemPreferences
 import petpet.petpet.store.StoreItem
 import java.util.ArrayList
@@ -45,7 +46,11 @@ class GeneralAdapter(private val dataSet: ArrayList<StoreItem>, private val even
                 Toast.makeText(context, dataSet[position].name + " -1", Toast.LENGTH_SHORT).show()
             }
 
-            //TODO:update progress bar
+            //update progress bar
+            val petPreference = PetPreference(context)
+            petPreference.changePetHappiness(dataSet[position].happiness.toLong())
+            petPreference.changePetHealth(dataSet[position].health.toLong())
+            petPreference.changePetHunger(dataSet[position].hunger.toLong())
 
             this.notifyDataSetChanged()
         }

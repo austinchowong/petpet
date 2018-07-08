@@ -10,7 +10,7 @@
         "image": "/mipmap/piggy",
         "price": 40,
         "happiness": 5,
-        "hunger": 10,
+        "hunger": 50,
         "health": 0
       },
       {
@@ -51,7 +51,7 @@
         "category": "toy",
         "image": "/drawable/leo",
         "price": 100,
-        "happiness": 20,
+        "happiness": 30,
         "hunger": -10,
         "health": 0
       },

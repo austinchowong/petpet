@@ -7,5 +7,11 @@
         android:entryValues="@array/language_entryValues"
         android:key="@string/KEY_SETTING_LANGUAGE"
         android:title="@string/language" />
+    <EditTextPreference
+        android:defaultValue="Coco"
+        android:key="pet_name"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Pet Name" />
 
 </PreferenceScreen>

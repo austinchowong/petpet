@@ -1,9 +1,12 @@
 package petpet.petpet
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.preference.PreferenceManager
 import android.util.Log
 import android.widget.Button
 import petpet.petpet.event.WalkFragment
@@ -14,6 +17,7 @@ import petpet.petpet.pet.PetPreference
 import petpet.petpet.store.StoreCategory
 import petpet.petpet.store.StoreHelper
 import petpet.petpet.store.StoreType
+import petpet.petpet.utility.LanguageUtil
 import java.util.*
 
 /*
@@ -21,7 +25,7 @@ import java.util.*
     temp home related function. this file will be replace by Ilene
     home activity is displaying pet's breed and description
  */
-class Home : AppCompatActivity() {
+class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     lateinit var store : Map<StoreType, StoreCategory>
     lateinit var walk_button : Button
@@ -39,12 +43,6 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        walk_button = findViewById(R.id.walk_button)
-        walk_button.setOnClickListener {
-            val dialog = WalkFragment()
-            dialog.show(fragmentManager, "WalkFragment")
-        }
-
         //load store info to current activities
         val breed = PetPreference(this).getPetBreed().toString()
         store = StoreHelper().loadingStoreInfo(this, breed)
@@ -54,8 +52,28 @@ class Home : AppCompatActivity() {
             MenuFragment().show(fragmentManager, "MenuFragment")
         }
 
+        val petName = PreferenceManager.getDefaultSharedPreferences(this).getString("pet_name","")
+        if (petName != "") findViewById<TextView>(R.id.home_pet_name).text = petName
+
         updateProgBars()
         StartTimer()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this)
+    }
+
+    override fun onPause() {
+        PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this)
+        super.onPause()
+    }
+
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+        //update petName
+        if(key == "pet_name") {
+            findViewById<TextView>(R.id.home_pet_name).text = PreferenceManager.getDefaultSharedPreferences(this).getString("pet_name","")
+        }
     }
 
     override fun onStop() {
