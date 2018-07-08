@@ -75,10 +75,10 @@ class CreatePetActivity : AppCompatActivity() {
     }
 
     fun choosePet(view : View) {
-        //TODO: load pet info
+        //load pet info
         PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
 
-        //TODO: loading pet's timeline and events in system
+        //loading pet's timeline and events in system
             selectedBreed = PetPreference(this).getPetBreed().toString()
             loadTimeline()
 

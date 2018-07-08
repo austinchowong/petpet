@@ -10,12 +10,13 @@ import petpet.petpet.R
 /*
     use to store pet related data locally
  */
-class PetPreference (context: Context) {
+class PetPreference (val context: Context) {
     private val prefFileName : String = "PET"
     private val hasPet = "hasPet"
     private val prefBreed: String = "prefBreed"
     private val prefDescription: String = "prefDescription"
     private val prefId: String = "prefId"
+    private val petName : String = "prefName"
 
     val prefTimelineFileName : String = "PetTimeline.json"
     private val prefHunger : String = "prefHunger"
@@ -27,7 +28,6 @@ class PetPreference (context: Context) {
     private val numTimesWalked : String = "numTimesWalked"
 
     val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
-    val context = context
 
     fun hasPet() : Boolean {
         return preference.getBoolean(hasPet, false)
@@ -108,5 +108,21 @@ class PetPreference (context: Context) {
         var numWalks = preference.getLong(numTimesWalked, 0)
         numWalks++
         preference.edit().putLong(numTimesWalked, numWalks).apply()
+    }
+
+    fun getPetName() :String {
+        return preference.getString(petName, "")
+    }
+
+    fun setPetName(name : String) {
+        preference.edit().putString(petName, name).apply()
+    }
+
+    fun getPetPreferenceName() :String {
+        return prefFileName
+    }
+
+    fun getPetNameKey() :String {
+        return petName
     }
 }
