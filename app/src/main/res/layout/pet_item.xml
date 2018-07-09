@@ -9,15 +9,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/customborder"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/pet_item_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="94dp"
+            android:layout_height="96dp"
             android:layout_margin="8dp"
-            card_view:srcCompat="@mipmap/piggy" />
+            card_view:srcCompat="@drawable/headshot" />
 
         <LinearLayout
             android:id="@+id/pet_id"
@@ -30,9 +32,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="4dp"
                 android:text="@string/pet_name"
                 android:textColor="@color/colourForth"
-                android:textSize="32sp" />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/pet_item_description"
@@ -46,11 +49,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="@string/choose_pet"
-                android:textColor="@color/colourForth"
                 android:background="#FFFFFF"
                 android:onClick="choosePet"
-                android:tag=""/>
+                android:tag=""
+                android:text="@string/choose_pet"
+                android:textColor="@color/colourForth" />
         </LinearLayout>
 
     </LinearLayout>
