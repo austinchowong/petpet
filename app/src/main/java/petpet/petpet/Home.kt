@@ -52,7 +52,8 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
             MenuFragment().show(fragmentManager, "MenuFragment")
         }
 
-        val petName = PreferenceManager.getDefaultSharedPreferences(this).getString("pet_name","")
+        val petName = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(resources.getString(R.string.PET_NAME_KEY),"")
         if (petName != "") findViewById<TextView>(R.id.home_pet_name).text = petName
 
         updateProgBars()
@@ -71,7 +72,7 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
         //update petName
-        if(key == "pet_name") {
+        if(key == resources.getString(R.string.PET_NAME_KEY)) {
             findViewById<TextView>(R.id.home_pet_name).text = PreferenceManager.getDefaultSharedPreferences(this).getString("pet_name","")
         }
     }
@@ -91,19 +92,19 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
         //update progress bars
         val petpreference = PetPreference(this)
 
-        var hungerProg : ProgressBar = findViewById(R.id.progressBar1)
+        val hungerProg : ProgressBar = findViewById(R.id.progressBar1)
         hungerProg.progress = petpreference.getPetHunger().toInt()
-        var hungerPercent : TextView = findViewById(R.id.home_progress_value_1)
+        val hungerPercent : TextView = findViewById(R.id.home_progress_value_1)
         hungerPercent.text = petpreference.getPetHunger().toString() + "%"
 
-        var happinessProg : ProgressBar = findViewById(R.id.progressBar2)
+        val happinessProg : ProgressBar = findViewById(R.id.progressBar2)
         happinessProg.progress = petpreference.getPetHappiness().toInt()
-        var happinessPercent : TextView = findViewById(R.id.home_progress_value_2)
+        val happinessPercent : TextView = findViewById(R.id.home_progress_value_2)
         happinessPercent.text = petpreference.getPetHappiness().toString() + "%"
 
-        var healthProg : ProgressBar = findViewById(R.id.progressBar3)
+        val healthProg : ProgressBar = findViewById(R.id.progressBar3)
         healthProg.progress = petpreference.getPetHealth().toInt()
-        var healthPercent : TextView = findViewById(R.id.home_progress_value_3)
+        val healthPercent : TextView = findViewById(R.id.home_progress_value_3)
         healthPercent.text = petpreference.getPetHealth().toString() + "%"
 
         Log.d("home", "update prog bars")
@@ -115,7 +116,7 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
             override fun run() {
                 mHandler.obtainMessage().sendToTarget()
             }
-        }, 0, 10 * 1000)
+        }, 0, 5 * 1000)
     }
 
     fun StopTimer()

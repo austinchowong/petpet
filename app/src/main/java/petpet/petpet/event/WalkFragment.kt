@@ -64,13 +64,11 @@ public class WalkFragment: DialogFragment(), SensorEventListener, StepListener {
 
         startButton.setOnClickListener{
             TryStartTracking()
-            //getFragmentManager().beginTransaction().remove(this).commit();
             updateView(view)
         }
 
         stopButton.setOnClickListener{
             TryStopTracking()
-            //getFragmentManager().beginTransaction().remove(this).commit();
             updateView(view)
         }
     }

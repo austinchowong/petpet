@@ -30,6 +30,8 @@ class Timeline {
         //only check current day's events/info
         //timeline will only contain walking and vaccination events
         val today = GetCurrentDay()
+        if(today >= timeline.size) return
+
         for(event in timeline[today].dayEvents)
         {
             event.CheckStatus(context, startDate, timeline[today])
