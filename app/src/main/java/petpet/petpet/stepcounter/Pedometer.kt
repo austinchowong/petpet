@@ -51,6 +51,9 @@ object Pedometer{
         if(numSteps > context.resources.getInteger(R.integer.min_step_count))
         {
             PetPreference(context).addWalk()
+            PetPreference(context).changePetHealth((numSteps / 15).toLong());
+            PetPreference(context).changePetHappiness((numSteps / 10).toLong());
+            PetPreference(context).changePetHunger(-(numSteps / 20).toLong());
         }
 
         isWalking = false
