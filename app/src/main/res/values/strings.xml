@@ -36,4 +36,9 @@
     <string name="walk">Walk</string>
     <string name="_0">0</string>
     <string name="feed">feed</string>
+    <string name="name">Name</string>
+    <string name="enter_name_here">Enter Name Here</string>
+    <string name="confirm">confirm</string>
+    <string name="empty_name_msg">Pet name cannot be empty</string>
+    <string name="PET_NAME_KEY">pet_name</string>
 </resources>

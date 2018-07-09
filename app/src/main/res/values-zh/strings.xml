@@ -34,5 +34,10 @@
     <string name="walk">散步</string>
     <string name="Vet">宠物诊所</string>
     <string name="feed">投喂</string>
+    <string name="name">名字</string>
+    <string name="enter_name_here">给你的宠物一个名字吧</string>
+    <string name="confirm">确认</string>
+    <string name="empty_name_msg">宠物的名字不可以是空的哦</string>
+    <string name="PET_NAME_KEY">pet_name</string>
 
 </resources>
