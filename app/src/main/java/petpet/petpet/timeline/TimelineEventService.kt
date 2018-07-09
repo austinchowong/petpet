@@ -20,7 +20,7 @@ class TimelineEventService : IntentService("AlarmService") {
         if(f.exists())
         {
             //reduce pet status over time
-            if(petpreference.getPetHunger() < this.resources.getInteger(R.integer.min_hunger_to_lose_health).toLong())
+            if(petpreference.getPetHunger() < this.resources.getInteger(R.integer.min_hunger_to_lose_health).toLong() || petpreference.getPetHunger() > 100.toLong())
             {
                 petpreference.changePetHealth(this.resources.getInteger(R.integer.health_change_per_min).toLong())
             }

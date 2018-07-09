@@ -116,7 +116,7 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
             override fun run() {
                 mHandler.obtainMessage().sendToTarget()
             }
-        }, 0, 10 * 1000)
+        }, 0, 5 * 1000)
     }
 
     fun StopTimer()
