@@ -25,6 +25,8 @@ class PetPreference (val context: Context) {
     ///pet status fields
     private val numMissedVaccineShots : String = "numMissedVaccineShots"
     private val numTimesWalked : String = "numTimesWalked"
+    private val numTotalStepsTaken : String = "numStepsTaken"
+    private val totalBudget : String = "totalBudget"
 
     val preference = context.getSharedPreferences(prefFileName, Context.MODE_PRIVATE)
 
@@ -102,11 +104,45 @@ class PetPreference (val context: Context) {
         preference.edit().putLong(numMissedVaccineShots, numShots).apply()
     }
 
+    fun getNumVaccineShotMissed() : Long
+    {
+        return preference.getLong(numMissedVaccineShots, 0)
+    }
+
     fun addWalk()
     {
         var numWalks = preference.getLong(numTimesWalked, 0)
         numWalks++
         preference.edit().putLong(numTimesWalked, numWalks).apply()
+    }
+
+    fun getNumWalks() : Long
+    {
+        return preference.getLong(numTimesWalked, 0)
+    }
+
+    fun addSteps(changeValue: Long)
+    {
+        var numSteps = preference.getLong(numTotalStepsTaken, 0)
+        numSteps += changeValue
+        preference.edit().putLong(numTotalStepsTaken, numSteps).apply()
+    }
+
+    fun getNumSteps() : Long
+    {
+        return preference.getLong(numTotalStepsTaken, 0)
+    }
+
+    fun addToBudget(amount : Long)
+    {
+        var budget = preference.getLong(totalBudget, 0)
+        budget += amount
+        preference.edit().putLong(totalBudget, budget).apply()
+    }
+
+    fun getTotalBudget() : Long
+    {
+        return preference.getLong(totalBudget, 0)
     }
 
     fun getPetPreferenceName() :String {

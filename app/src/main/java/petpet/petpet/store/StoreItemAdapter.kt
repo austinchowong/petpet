@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import petpet.petpet.R
+import petpet.petpet.pet.PetPreference
 import java.util.ArrayList
 
 class StoreItemAdapter(private val dataSet: ArrayList<StoreItem>, private val context: Context):  BaseAdapter() {
@@ -38,6 +39,7 @@ class StoreItemAdapter(private val dataSet: ArrayList<StoreItem>, private val co
             ItemPreferences(context, dataSet[position].category.name).addOne(dataSet[position].name)
 
             //TODO:: add the cost to user account
+            PetPreference(context).addToBudget(dataSet[position].price.toLong())
 
             //Display a Toast to notify user purchase succeed
             Toast.makeText(context, dataSet[position].name + " +1", Toast.LENGTH_SHORT).show()

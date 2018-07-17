@@ -42,7 +42,12 @@ class Timeline {
     {
         val start = Date(startDate)
         val now = GregorianCalendar.getInstance().time
-        return now.day - start.day
+        var today = now.date - start.day
+
+        //set to last day if out of range
+        if(today >= timeline.size)
+            today = timeline.size - 1
+        return today
     }
 
     fun GetCurrentTimelineDay(): TimelineDay
