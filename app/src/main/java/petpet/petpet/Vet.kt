@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import petpet.petpet.event.PetAnimator
 import petpet.petpet.pet.PetPreference
 import petpet.petpet.timeline.Timeline
 import petpet.petpet.timeline.TimelineUtil
@@ -34,6 +35,8 @@ class Vet () {
             Log.d("pethappiness", petpreference.getPetHappiness().toString())
             Log.d("pethealth", petpreference.getPetHealth().toString())
             Log.d("pethunger", petpreference.getPetHunger().toString())
+
+            PetAnimator.notifyObservers("pixelcorgivet")
         } else {
             //no need to go to vet, no event started yet
             Log.d("petHome", "dont need to visit vet")

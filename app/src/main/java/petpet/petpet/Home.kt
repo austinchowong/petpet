@@ -13,11 +13,14 @@ import petpet.petpet.event.WalkFragment
 import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
+import petpet.petpet.event.Observer
+import petpet.petpet.event.PetAnimator
 import petpet.petpet.pet.PetPreference
 import petpet.petpet.store.StoreCategory
 import petpet.petpet.store.StoreHelper
 import petpet.petpet.store.StoreType
 import petpet.petpet.utility.LanguageUtil
+import pl.droidsonroids.gif.GifImageView
 import java.util.*
 
 /*
@@ -25,19 +28,21 @@ import java.util.*
     temp home related function. this file will be replace by Ilene
     home activity is displaying pet's breed and description
  */
-class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
+class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener, Observer {
 
     lateinit var store : Map<StoreType, StoreCategory>
     lateinit var walk_button : Button
 
     lateinit var timer : Timer
     var isTimerRunning : Boolean = false
+    var animator : PetAnimator = PetAnimator
 
     var mHandler: Handler = object : Handler() {
         override fun handleMessage(msg: Message) {
             updateProgBars()
         }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +63,9 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
 
         updateProgBars()
         StartTimer()
+        //animator.attachObserver(findViewById(R.id.doganimator))
+        animator.attachObserver(this)
+        animator.notifyObservers("pixelcorgiidle")
     }
 
     override fun onResume() {
@@ -122,5 +130,11 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
     fun StopTimer()
     {
         timer.cancel()
+    }
+
+    override fun update(gif : String){
+        var imgFp = findViewById<GifImageView>(R.id.doganimator) //as GifImageView
+        val gifID = resources.getIdentifier(gif, "drawable", packageName)
+        imgFp.setImageResource(gifID)
     }
 }

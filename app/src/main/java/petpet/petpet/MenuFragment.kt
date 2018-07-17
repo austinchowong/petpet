@@ -44,6 +44,7 @@ class MenuFragment : DialogFragment() {
         val vet_button = view.findViewById<ImageButton>(R.id.menu_vet)
         vet_button.setOnClickListener {
             Vet().VetVisit(view.context)
+
         }
 
         val walk_button = view.findViewById<ImageButton>(R.id.menu_walk)

@@ -15,6 +15,7 @@ import android.content.Context.SENSOR_SERVICE
 import android.hardware.Sensor
 import petpet.petpet.R
 import android.content.Context.SENSOR_SERVICE
+import petpet.petpet.event.PetAnimator
 
 object Pedometer{
 
@@ -35,6 +36,7 @@ object Pedometer{
         numSteps = 0
         isWalking = true
 
+        PetAnimator.notifyObservers("pixelcorgiwalking")
         return true
     }
 
@@ -80,7 +82,7 @@ object Pedometer{
         }
 
         TimelineUtil().setCurrentTimeline(context, timeline)
-
+        PetAnimator.notifyObservers("pixelcorgiidle")
         return true
     }
 }

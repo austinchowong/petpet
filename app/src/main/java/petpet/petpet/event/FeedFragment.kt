@@ -9,6 +9,7 @@ import petpet.petpet.Home
 import petpet.petpet.R
 import petpet.petpet.store.StoreItem
 import petpet.petpet.store.StoreType
+import pl.droidsonroids.gif.GifImageView
 
 class FeedFragment: DialogFragment() {
     private val categories: Array<StoreType> = arrayOf(StoreType.TREAT, StoreType.FOOD)
@@ -24,9 +25,13 @@ class FeedFragment: DialogFragment() {
         categories.forEach { categories -> items += (activity as Home).store.getValue(categories)?.items }
         gridView.adapter = GeneralAdapter(items, eventName, activity)
 
+
+
         builder.setTitle(eventName)
                 .setView(gridView)
                 .setPositiveButton("OK", { dialog, whichButton -> })
+
+
 
         return builder.create()
     }
