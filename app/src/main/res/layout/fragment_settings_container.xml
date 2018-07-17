@@ -7,10 +7,13 @@
     android:orientation="vertical">
 
     <fragment
-        android:name="petpet.petpet.settings.SettingsFragment"
         android:id="@+id/setting_container"
+        android:name="petpet.petpet.settings.SettingsFragment"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>
 

@@ -1,75 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    app:layout_gravity="center_horizontal">
 
-    <ImageButton
-        android:id="@+id/menu_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:contentDescription="@string/settings"
-        android:src="@drawable/ic_setting"
-        app:layout_constraintEnd_toStartOf="@+id/menu_walk"
-        app:layout_constraintHorizontal_bias="1.0"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_feed" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/menu_walk"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:contentDescription="@string/walk"
-        android:src="@drawable/ic_walk"
-        app:layout_constraintEnd_toEndOf="@+id/menu_play"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/menu_play"
-        app:layout_constraintTop_toTopOf="@+id/menu_settings" />
+        <ImageButton
+            android:id="@+id/menu_feed"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/food"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_feed" />
 
-    <ImageButton
-        android:id="@+id/menu_vet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/Vet"
-        android:src="@drawable/ic_vet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/menu_walk"
-        app:layout_constraintTop_toTopOf="@+id/menu_walk" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="Feed"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/menu_store"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/store"
-        android:src="@drawable/ic_store"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/menu_play"
-        app:layout_constraintTop_toTopOf="@+id/menu_play" />
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout4"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/menu_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/play"
-        android:src="@drawable/ic_play"
-        app:layout_constraintEnd_toStartOf="@+id/menu_store"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/menu_feed"
-        app:layout_constraintTop_toTopOf="@+id/menu_feed" />
+        <ImageButton
+            android:id="@+id/menu_play"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/play"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_play" />
 
-    <ImageButton
-        android:id="@+id/menu_feed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:contentDescription="@string/food"
-        android:src="@drawable/ic_feed"
-        app:layout_constraintEnd_toStartOf="@+id/menu_play"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="Play"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout6"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/menu_walk"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/walk"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_walk" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="Walk"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+
+        <ImageButton
+            android:id="@+id/menu_settings"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/settings"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_setting" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="Settings"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        <ImageButton
+            android:id="@+id/menu_store"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/store"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_store" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="Store"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+        <ImageButton
+            android:id="@+id/menu_vet"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#ffffff"
+            android:contentDescription="@string/Vet"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_vet" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="3dp"
+            android:text="Veterinarian"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+
 </android.support.constraint.ConstraintLayout>

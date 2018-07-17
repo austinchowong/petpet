@@ -4,11 +4,12 @@
     android:id="@+id/store_gridview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".store.StoreFragment"
-    android:numColumns="2"
+    android:layout_margin="16dp"
     android:gravity="center"
-    android:verticalSpacing="8dp"
     android:horizontalSpacing="8dp"
-    android:layout_margin="16dp">
+    android:numColumns="2"
+    android:padding="5dp"
+    android:verticalSpacing="8dp"
+    tools:context=".store.StoreFragment">
 
 </GridView>

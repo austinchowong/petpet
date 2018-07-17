@@ -3,18 +3,12 @@
     "id": 1,
     "breed": "Welsh Corgi",
     "description": " The Welsh Corgi ...",
-    "image":  "/mipmap/ic_launcher"
+    "image":  "/drawable/headshot"
   },
   {
     "id": 2,
     "breed": "Siberian Husky",
     "description": " The Siberian Husky ...",
     "image":  "/drawable/leo"
-  },
-  {
-    "id": 3,
-    "breed": "Piggy",
-    "description": " The Siberian Husky is SIJIA",
-    "image":  "/mipmap/piggy"
   }
 ]
