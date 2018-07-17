@@ -7,97 +7,120 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingLeft="27dp"
+        android:paddingTop="20dp">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pet Name:  " />
+                android:layout_marginRight="5dp"
+                android:text="Pet Name:  "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/pet_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Health Status: " />
+                android:layout_marginRight="5dp"
+                android:text="Health Status: "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/health_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hunger Status: " />
+                android:layout_marginRight="5dp"
+                android:text="Hunger Status: "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/hunger_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Happiness Status: " />
+                android:layout_marginRight="5dp"
+                android:text="Happiness Status: "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/happiness_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number of walks taken: " />
+                android:layout_marginRight="5dp"
+                android:text="Number of walks taken: "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/walks_taken"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
             tools:layout_editor_absoluteX="209dp"
             tools:layout_editor_absoluteY="74dp">
 
@@ -105,19 +128,23 @@
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total number of steps taken: " />
+                android:layout_marginRight="5dp"
+                android:text="Total number of steps taken: "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/steps_taken"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
             tools:layout_editor_absoluteX="209dp"
             tools:layout_editor_absoluteY="74dp">
 
@@ -125,19 +152,23 @@
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Number of vet visits missed: " />
+                android:layout_marginRight="5dp"
+                android:text="Number of vet visits missed: "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/vet_missed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
             tools:layout_editor_absoluteX="209dp"
             tools:layout_editor_absoluteY="74dp">
 
@@ -145,13 +176,16 @@
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Amount of money spent: " />
+                android:layout_marginRight="5dp"
+                android:text="Amount of money spent: "
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/money_spent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="18sp" />
         </TableRow>
 
     </TableLayout>
