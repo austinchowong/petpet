@@ -27,7 +27,8 @@ class TimelineEventService : IntentService("AlarmService") {
             petpreference.changePetHappiness(this.resources.getInteger(R.integer.happiness_change_per_min).toLong())
             petpreference.changePetHunger(this.resources.getInteger(R.integer.hunger_change_per_min).toLong())
 
-            Log.d("petTimelineEventService", "timeline file found")
+            sendStatusNotifications(petpreference)
+
             val reader = BufferedReader(FileReader(f))
             val gson = Gson()
             val timeline: Timeline = gson.fromJson(reader, object : TypeToken<Timeline>() {}.type)
@@ -47,6 +48,22 @@ class TimelineEventService : IntentService("AlarmService") {
         else
         {
             Log.d("petTimelineEventService", "no timeline file found")
+        }
+    }
+
+    fun sendStatusNotifications(petPreference: PetPreference)
+    {
+        if(petPreference.getPetHunger() < this.resources.getInteger(R.integer.min_status_value_for_notif))
+        {
+            NotificationUtil().sendNotification(this, "Pet Status Warning", "Your pet is very hungry")
+        }
+        if(petPreference.getPetHappiness() < this.resources.getInteger(R.integer.min_status_value_for_notif))
+        {
+            NotificationUtil().sendNotification(this, "Pet Status Warning", "Your pet is not very happy")
+        }
+        if(petPreference.getPetHealth() < this.resources.getInteger(R.integer.min_status_value_for_notif))
+        {
+            NotificationUtil().sendNotification(this, "Pet Status Warning", "Your pet's health is in poor condition")
         }
     }
 }
