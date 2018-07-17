@@ -63,6 +63,7 @@ object Pedometer{
         val timeline = TimelineUtil().getCurrentTimeline(context)
         var today = timeline.GetCurrentTimelineDay()
         today.stepsTaken += numSteps
+        PetPreference(context).addSteps(numSteps.toLong())
 
         //check if daily walking goal is complete
         if(today.stepsTaken >= context.resources.getInteger(R.integer.daily_step_count))

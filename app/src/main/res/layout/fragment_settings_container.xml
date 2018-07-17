@@ -15,5 +15,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp" />
 
+    <Button
+        android:id="@+id/summary_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Account Summary" />
+
 </LinearLayout>
 

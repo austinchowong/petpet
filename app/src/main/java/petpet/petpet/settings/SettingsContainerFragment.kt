@@ -4,7 +4,9 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.app.DialogFragment
 import android.os.Bundle
+import android.widget.Button
 import petpet.petpet.R
+import petpet.petpet.event.SummaryFragment
 
 
 class SettingsContainerFragment : DialogFragment() {
@@ -13,9 +15,15 @@ class SettingsContainerFragment : DialogFragment() {
         val builder = AlertDialog.Builder(activity)
         val inflater = activity.layoutInflater
 
+        var fragmentView = inflater.inflate(R.layout.fragment_settings_container, null)
+        var summaryButton = fragmentView.findViewById<Button>(R.id.summary_button)
+        summaryButton.setOnClickListener{
+            openSummary()
+        }
+
         //TODO: there is a bug -> duplicate petpet.petpet.settings.SettingsFragment
         builder.setTitle(R.string.settings)
-                .setView(inflater.inflate(R.layout.fragment_settings_container, null))
+                .setView(fragmentView)
 
         return builder.create()
     }
@@ -29,6 +37,11 @@ class SettingsContainerFragment : DialogFragment() {
         } catch (e: IllegalStateException) {
             //TODO: when perform language changing, fragment->setting_container will be destroyed twice
         }
+    }
+
+    fun openSummary()
+    {
+        SummaryFragment().show(fragmentManager, "SummaryFragment")
     }
 
 }

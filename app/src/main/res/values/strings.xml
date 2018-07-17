@@ -41,4 +41,5 @@
     <string name="confirm">confirm</string>
     <string name="empty_name_msg">Pet name cannot be empty</string>
     <string name="PET_NAME_KEY">pet_name</string>
+    <string name="account_summary">Account Summary</string>
 </resources>
