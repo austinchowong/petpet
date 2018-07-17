@@ -43,9 +43,9 @@ class PetPreference (val context: Context) {
                 .putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString())
                 .putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString())
                 .putLong(prefId, view.tag as Long)
-                .putLong(prefHunger, 60L)
-                .putLong(prefHappiness, 60L)
-                .putLong(prefHealth, 60L)
+                .putLong(prefHunger, 45L)
+                .putLong(prefHappiness, 45L)
+                .putLong(prefHealth, 45L)
                 .apply()
         setHasPet(true)
     }

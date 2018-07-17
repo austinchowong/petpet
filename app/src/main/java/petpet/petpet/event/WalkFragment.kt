@@ -27,17 +27,14 @@ public class WalkFragment: DialogFragment(), SensorEventListener, StepListener {
     lateinit var accel: Sensor
     lateinit var stepCountDisplay : TextView
 
-    /**
-     * Problems :
-     * -fragment ui doesnt refresh dynamically
-     *
-     */
+    lateinit var fragmentView : View
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         var builder = AlertDialog.Builder(activity)
         var inflater = activity.layoutInflater
 
-        val fragmentView = inflater.inflate(R.layout.fragment_walk, null)
+        fragmentView = inflater.inflate(R.layout.fragment_walk, null)
 
         updateView(fragmentView)
 

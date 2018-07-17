@@ -35,6 +35,11 @@
             android:name=".TaskRemovedService"
             android:stopWithTask="false" />
 
+        <service
+            android:name=".utility.BgmService"
+            android:exported="false"
+            />
+
     </application>
 </manifest>
 
