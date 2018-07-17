@@ -13,6 +13,7 @@ import petpet.petpet.timeline.TimelineEventService
 import petpet.petpet.utility.NotificationUtil
 import kotlin.concurrent.thread
 import android.app.ActivityManager
+import petpet.petpet.utility.BgmService
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +54,7 @@ class SplashActivity : AppCompatActivity() {
         val alarmIntent = PendingIntent.getService(this, 1, intent, 0)
 
         alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
-                SystemClock.elapsedRealtime(), 1000 * 60,  alarmIntent)
+                SystemClock.elapsedRealtime(), 1000 * 30,  alarmIntent)
     }
 
     fun isServiceRunning(serviceClass: Class<*>): Boolean {

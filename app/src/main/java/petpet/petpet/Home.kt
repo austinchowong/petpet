@@ -1,6 +1,7 @@
 package petpet.petpet
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ import petpet.petpet.pet.PetPreference
 import petpet.petpet.store.StoreCategory
 import petpet.petpet.store.StoreHelper
 import petpet.petpet.store.StoreType
+import petpet.petpet.utility.BgmService
 import petpet.petpet.utility.LanguageUtil
 import pl.droidsonroids.gif.GifImageView
 import java.util.*
@@ -43,7 +45,6 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -62,7 +63,6 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
         if (petName != "") findViewById<TextView>(R.id.home_pet_name).text = petName
 
         updateProgBars()
-        StartTimer()
         //animator.attachObserver(findViewById(R.id.doganimator))
         animator.attachObserver(this)
         animator.notifyObservers("pixelcorgiidle")
@@ -71,10 +71,14 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
     override fun onResume() {
         super.onResume()
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this)
+        startService(Intent(baseContext, BgmService::class.java))
+        StartTimer()
     }
 
     override fun onPause() {
         PreferenceManager.getDefaultSharedPreferences(this).unregisterOnSharedPreferenceChangeListener(this)
+        stopService(Intent(baseContext, BgmService::class.java))
+        StopTimer()
         super.onPause()
     }
 
@@ -83,11 +87,6 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
         if(key == resources.getString(R.string.PET_NAME_KEY)) {
             findViewById<TextView>(R.id.home_pet_name).text = PreferenceManager.getDefaultSharedPreferences(this).getString("pet_name","")
         }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        StopTimer()
     }
 
     fun refreshHome() {
@@ -124,7 +123,7 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
             override fun run() {
                 mHandler.obtainMessage().sendToTarget()
             }
-        }, 0, 5 * 1000)
+        }, 0, 1000)
     }
 
     fun StopTimer()

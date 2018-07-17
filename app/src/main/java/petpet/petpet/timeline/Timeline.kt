@@ -46,7 +46,10 @@ class Timeline {
 
         //set to last day if out of range
         if(today >= timeline.size)
+        {
             today = timeline.size - 1
+        }
+
         return today
     }
 
