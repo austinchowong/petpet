@@ -26,7 +26,7 @@ class PetItemAdapter(private val dataSet: Array<Pet>, private val context: Conte
         holder.cardView.findViewById<TextView>(R.id.pet_item_description).text =  dataSet[position].description
         val uri = Uri.parse("android.resource://" + R::class.java.`package`.name + dataSet[position].image)
         holder.cardView.findViewById<ImageView>(R.id.pet_item_img).setImageURI(uri)
-        holder.cardView.findViewById<Button>(R.id.pet_item_button).tag = dataSet[position].breed
+        holder.cardView.findViewById<Button>(R.id.pet_item_button).tag = dataSet[position].id
     }
 
     override fun getItemCount(): Int = dataSet.size

@@ -36,7 +36,7 @@ object Pedometer{
         numSteps = 0
         isWalking = true
 
-        PetAnimator.notifyObservers("pixelcorgiwalking")
+        PetAnimator.notifyObservers("walking")
         return true
     }
 
@@ -83,7 +83,7 @@ object Pedometer{
         }
 
         TimelineUtil().setCurrentTimeline(context, timeline)
-        PetAnimator.notifyObservers("pixelcorgiidle")
+        PetAnimator.notifyObservers("idle")
         return true
     }
 }

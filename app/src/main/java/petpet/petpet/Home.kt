@@ -65,7 +65,7 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
         updateProgBars()
         //animator.attachObserver(findViewById(R.id.doganimator))
         animator.attachObserver(this)
-        animator.notifyObservers("pixelcorgiidle")
+        animator.notifyObservers("idle")
     }
 
     override fun onResume() {
@@ -133,7 +133,7 @@ class Home : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeList
 
     override fun update(gif : String){
         var imgFp = findViewById<GifImageView>(R.id.doganimator) //as GifImageView
-        val gifID = resources.getIdentifier(gif, "drawable", packageName)
+        val gifID = resources.getIdentifier(PetPreference(this).getPetBreedTag() + gif, "drawable", packageName)
         imgFp.setImageResource(gifID)
     }
 }

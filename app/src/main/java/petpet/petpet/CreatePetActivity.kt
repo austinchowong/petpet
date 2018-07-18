@@ -76,7 +76,16 @@ class CreatePetActivity : AppCompatActivity() {
 
     fun choosePet(view : View) {
         //load pet info
-        PetPreference(this).setPetPreference(findViewById<CardView>(R.id.pet_item))
+        val outerview = findViewById<RecyclerView>(R.id.recyclerview_create_pet)
+        var petView = findViewById<CardView>(R.id.pet_item) as View
+        for(i in 0..outerview.childCount - 1)
+        {
+            if(outerview.getChildAt(i).tag == view.tag)
+            {
+                petView = outerview.getChildAt(i)
+            }
+        }
+        PetPreference(this).setPetPreference(petView)
 
         //loading pet's timeline and events in system
             selectedBreed = PetPreference(this).getPetBreed().toString()

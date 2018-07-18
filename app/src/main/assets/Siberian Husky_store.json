@@ -1,0 +1,112 @@
+[
+  {
+    "category": "food",
+    "description": "...",
+    "items": [
+      {
+        "name": "Regular Dog Food",
+        "description": "Regular Dog food",
+        "category": "food",
+        "image": "/drawable/ic_pet_food_regular",
+        "price": 20,
+        "happiness": 5,
+        "hunger": 10,
+        "health": 0
+      },
+      {
+        "name": "Mid-grade Dog Food",
+        "description": "Mid-grade Dog Food",
+        "category": "food",
+        "image": "/drawable/ic_pet_food_midgrade",
+        "price": 30,
+        "happiness": 5,
+        "hunger": 20,
+        "health": 0
+      },
+      {
+        "name": "Premium Dog Food",
+        "description": "Premium Dog Food",
+        "category": "food",
+        "image": "/drawable/ic_pet_food_premium",
+        "price": 40,
+        "happiness": 5,
+        "hunger": 30,
+        "health": 0
+      }
+    ]
+  },
+  {
+    "category": "toy",
+    "description": "...",
+    "items": [
+      {
+        "name": "Ball",
+        "description": "Tennis Ball",
+        "category": "toy",
+        "image": "/drawable/ic_tennis",
+        "price": 100,
+        "happiness": 20,
+        "hunger": -10,
+        "health": 0
+      },
+      {
+        "name": "Frisbee",
+        "description": "frisbee frisbee frisbee",
+        "category": "toy",
+        "image": "/drawable/ic_frisbee",
+        "price": 200,
+        "happiness": 30,
+        "hunger": -10,
+        "health": 0
+      },
+      {
+        "name": "Rope",
+        "description": "Rope",
+        "category": "toy",
+        "image": "/drawable/ic_toy",
+        "price": 150,
+        "happiness": 25,
+        "hunger": -10,
+        "health": 0
+      }
+    ]
+
+  },
+  {
+    "category": "treat",
+    "description": "...",
+    "items": [
+      {
+        "name": "Treat",
+        "description": "Treat",
+        "category": "treat",
+        "image": "/drawable/ic_treats",
+        "price": 10,
+        "happiness": 5,
+        "hunger": 5,
+        "health": 0
+      },
+      {
+        "name": "Bone",
+        "description": "Bone",
+        "category": "treat",
+        "image": "/drawable/ic_bone",
+        "price": 15,
+        "happiness": 10,
+        "hunger": 5,
+        "health": 0
+      },
+      {
+        "name": "Snack",
+        "description": "Snack",
+        "category": "treat",
+        "image": "/drawable/ic_snack",
+        "price": 20,
+        "happiness": 10,
+        "hunger": 10,
+        "health": 0
+      }
+    ]
+
+  }
+]

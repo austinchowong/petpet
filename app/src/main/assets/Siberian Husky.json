@@ -1,21 +1,44 @@
 {
-  "startTime": 0,
+  "startDate": 0,
   "timeline": [
     {
-      "name": "TestEvent",
-      "description": "Test...",
-      "id": 1,
-      "startDate": "0/0/15",
-      "endDate": "0/0/30",
-      "criteriaList": [],
-      "effects": [
+      "dayEvents":[
         {
-          "completedEffects": {
-            "fieldName": "happiness",
-            "valueChange": 20
-          }
+          "name": "vet",
+          "description": "Your corgi needs to visit the vet!",
+          "id": 1,
+          "startTime": "0/0/3",
+          "endTime": "0/0/6",
+          "consequences": [
+            {
+              "fieldName": "health",
+              "valueChange": -20
+            },
+            {
+              "fieldName": "happiness",
+              "valueChange": 10
+            }
+          ]
+        },
+        {
+          "name": "walk",
+          "description": "Lets go for a walk!",
+          "id": 2,
+          "startTime": "0/0/2",
+          "endTime": "0/0/4",
+          "consequences": [
+            {
+              "fieldName": "health",
+              "valueChange": -10
+            },
+            {
+              "fieldName": "happiness",
+              "valueChange": -10
+            }
+          ]
         }
       ]
     }
-  ]
+  ],
+  "duration": 14
 }
