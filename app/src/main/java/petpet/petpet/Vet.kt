@@ -36,7 +36,7 @@ class Vet () {
             Log.d("pethealth", petpreference.getPetHealth().toString())
             Log.d("pethunger", petpreference.getPetHunger().toString())
 
-            PetAnimator.notifyObservers("pixelcorgivet")
+            PetAnimator.notifyObservers("vet")
         } else {
             //no need to go to vet, no event started yet
             Log.d("petHome", "dont need to visit vet")

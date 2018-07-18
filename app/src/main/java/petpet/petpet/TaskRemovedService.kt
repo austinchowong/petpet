@@ -43,7 +43,7 @@ class TaskRemovedService : Service() {
         val alarmIntent = PendingIntent.getService(this, 1, intent, 0)
 
         alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP,
-                SystemClock.elapsedRealtime(), 1000 * 30,  alarmIntent)
+                SystemClock.elapsedRealtime(), 1000 * 15,  alarmIntent)
 
         stopSelf()
     }

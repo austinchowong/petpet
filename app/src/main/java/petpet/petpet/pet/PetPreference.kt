@@ -16,6 +16,7 @@ class PetPreference (val context: Context) {
     private val prefBreed: String = "prefBreed"
     private val prefDescription: String = "prefDescription"
     private val prefId: String = "prefId"
+    private val prefBreedTag = "prefBreedTag"
 
     val prefTimelineFileName : String = "PetTimeline.json"
     private val prefHunger : String = "prefHunger"
@@ -39,9 +40,20 @@ class PetPreference (val context: Context) {
     }
 
     fun setPetPreference(view : View) {
+        var breed = view.findViewById<TextView>(R.id.pet_item_name).text.toString()
+        var breedTag = ""
+        if(breed.contains("Corgi"))
+        {
+            breedTag = "pixelcorgi"
+        }
+        else if(breed.contains("Husky"))
+        {
+            breedTag = "husky"
+        }
         preference.edit()
                 .putString(prefBreed, view.findViewById<TextView>(R.id.pet_item_name).text.toString())
                 .putString(prefDescription, view.findViewById<TextView>(R.id.pet_item_description).text.toString())
+                .putString(prefBreedTag, breedTag)
                 .putLong(prefId, view.tag as Long)
                 .putLong(prefHunger, 45L)
                 .putLong(prefHappiness, 45L)
@@ -56,6 +68,10 @@ class PetPreference (val context: Context) {
 
     fun getPetDescription() : String {
         return preference.getString(prefDescription, "")
+    }
+
+    fun getPetBreedTag() : String {
+        return preference.getString(prefBreedTag, "")
     }
 
     fun changePetHunger(changeValue: Long)

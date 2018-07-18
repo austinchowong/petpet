@@ -44,12 +44,9 @@ class GeneralAdapter(private val dataSet: ArrayList<StoreItem>, private val even
             //Display a Toast to notify user purchase succeed
             if(result >= 0) {
                 Toast.makeText(context, dataSet[position].name + " -1", Toast.LENGTH_SHORT).show()
-                if (eventName == "Feed") { PetAnimator.notifyObservers("pixelcorgieating")}
-                else if (eventName == "Play") { PetAnimator.notifyObservers("pixelcorgiball")}
+                if (eventName == "Feed") { PetAnimator.notifyObservers("eating")}
+                else if (eventName == "Play") { PetAnimator.notifyObservers("ball")}
             }
-
-
-
 
             //update progress bar
             val petPreference = PetPreference(context)

@@ -14,8 +14,8 @@ object PetAnimator {
     fun notifyObservers(gif : String) {
         for (o in observers) o.update(gif)
         val timer = Timer()
-        if (gif != "pixelcorgiidle" && gif != "pixelcorgiwalking" ) {
-            timer.schedule(timerTask{ notifyObservers("pixelcorgiidle")}, 10000)
+        if (gif != "idle" && gif != "walking" ) {
+            timer.schedule(timerTask{ notifyObservers("idle")}, 10000)
         }
     }
 
